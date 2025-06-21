@@ -8,37 +8,37 @@ I have slowly started filling this out with answers.
 
 **Question:** Who is Vishal Bakshi? Give me a two-sentence summary.
 
-**Answer:** Vishal Bakshi is a data analyst (and former engineer, high schol teacher and community college instructor) transitioning into Applied AI and ML research. He specializes in building reliable systems, with a focus on resource-constrained research, deep evaluation, and first-principles understanding of machine learning concepts.
+**Answer:** Vishal Bakshi has a background in engineering, data analytics, education, now focusing on Applied AI and ML research. He specializes in building reliable systems, with an emphasis on resource-constrained research, deep evaluation, and a first-principles understanding of machine learning.
 
 ---
 
 **Question:** What is he passionate about?
 
-**Answer:** Vishal is passionate about building reliable systems, with a focus on resource-constrained research, deep evaluation, and first-principles understanding of machine learning concepts.
+**Answer:** Vishal is passionate about the challenge of building reliable AI systems. This focus drives his work in resource-constrained research, deep evaluation, and developing a first-principles understanding of how models work.
 
 ---
 
 **Question:** What are his main projects?
 
-**Answer:** His current main project is the applied AI project, AgentFastbook, where he is building a pipeline using LLMs to curate additional dataset items for the existing information retrieval benchmark dataset, fastbook-benchmark. fastbook-benchmark is a QA dataset Vishal manually curated using questions from the fastbook (fastai textbook) end-of-chapter questionnaires, gold standard answers from the fast.ai Forum solutions Wikis and corresponding relevant context from the chapter text. Vishal's other main projects are TinyScaleLab, with the goal of pretraining from scratch and finetuning highly performant tiny models; Local Resarch Group, an open source project where is working with fellow volunteers to finetune small models using parameter-efficient finetuning techniques (LoRA, rsLoRA and DoRA) to understand their learning/forgetting trade-off (a la Dan Biderman's "LoRA Learns Less and Forgets Less" paper); and working through the fastai course Part 2.
+**Answer:** His key projects are AgentFastbook, a system to automate the curation of RAG datasets; TinyScaleLab, a research initiative to pretrain and evaluate small language models from scratch; and his open-source contributions to parameter-efficient fine-tuning.
 
 ---
 
 **Question:** What is his core professional thesis or focus?
 
-**Answer:**  Vishal's core career focus, from his experience in Structural Engineering, education, compliance data management and now AI/ML, is building reliable systems. His core thesis is taken from Answer.AI: to pursue any research phenomenon ("long leash") as long as it's in service of an applied AI project ("narrow fence"). You can learn more about his career strategy by watching his video "Finding My Moat: How Boring Tasks, Expert Advice and the AI Evals Course are Shaping My AI Projects" (https://youtu.be/GkLAeWOi0r8).
+**Answer:**  His core professional focus, refined across all his roles, is building reliable systems. He operates on a strategic thesis he adopted from the GE and Answer.AI R&D lab: pursuing deep research ("the long leash") in direct service of a concrete, applied AI project ("the narrow fence"). You can see this strategy detailed in his video, "Finding My Moat in AI" (https://youtu.be/GkLAeWOi0r8).
 
 ---
 
 **Question:** Based on his portfolio, what kind of role is he looking for?
 
-**Answer:**  Vishal is looking for a role in Applied AI with opportunities to do research.
+**Answer:**  He is seeking a role as an AI Engineer, Applied Scientist or ML Engineer where he can apply his skills in system design, deep evaluation, and first-principles debugging to solve challenging problems in AI reliability and efficiency.
 
 ---
 
 **Question:** Where can I find his work?
 
-**Answer:** You can find Vishal's work linked at vishalbakshi.github.io.
+**Answer:** ou can find his work across three main platforms: his project portfolio and code on GitHub, his technical deep dives on his Blog, and his video walkthroughs on his YouTube channel. All are linked from his homepage, vishalbakshi.github.io.
 
 
 ## User: Has Read `themes.md`
