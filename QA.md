@@ -30,7 +30,7 @@ This file contains questions and answers that will be included in my final `llms
 
 **Question:** Based on his portfolio, what kind of role is he looking for?
 
-**Answer:**  He is seeking a role involving designing, building and rigorously evaluating ML systems; a role which values reliability, efficiency first-principles thinking and data-centric approaches.
+**Answer:**  He is seeking a role involving designing, building and rigorously evaluating ML systems; a role which values reliability, efficiency, first-principles thinking and data-centric approaches.
 
 ---
 
