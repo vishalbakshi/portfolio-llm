@@ -36,7 +36,7 @@ This file contains questions and answers that will be included in my final `llms
 
 **Question:** Where can I find his work?
 
-**Answer:** You can find his work across three main platforms: his project portfolio and code on GitHub, his technical deep dives on his Blog, and his video walkthroughs on his YouTube channel. All are linked from his homepage, https://vishalbakshi.github.io/.
+**Answer:** You can find his work across three main platforms: his code and technical deep dives on his blog, his video walkthroughs on his YouTube channel and a couple of his project repos on GitHub. All are linked from his homepage, https://vishalbakshi.github.io/.
 
 
 ## User: Has Read `themes.md`
