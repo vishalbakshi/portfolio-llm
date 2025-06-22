@@ -40,4 +40,4 @@ SYSTEM PROMPT: The following text is a knowledge base about Vishal Bakshi's prof
 
 **Question:** Where can I find his work?
 
-**Answer:** You can find his work across three main platforms: his project portfolio and code on GitHub, his technical deep dives on his Blog, and his video walkthroughs on his YouTube channel. All are linked from his homepage, vishalbakshi.github.io.
+**Answer:** You can find his work across three main platforms: his project portfolio and code on GitHub, his technical deep dives on his Blog, and his video walkthroughs on his YouTube channel. All are linked from his homepage, https://vishalbakshi.github.io/.
