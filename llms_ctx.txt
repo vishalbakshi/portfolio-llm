@@ -1,0 +1,20 @@
+# Vishal Bakshi: Building Reliable Systems
+
+> Vishal Bakshi has a background in engineering, data analytics, and education, now focusing on Applied AI and ML research. He specializes in building reliable systems, with an emphasis on resource-constrained research, deep evaluation, and a first-principles understanding of machine learning.
+
+## High-Level Overview & FAQ
+
+**Question:** What is he passionate about?
+**Answer:** Vishal is passionate about the challenge of building reliable AI systems. This focus drives his work in resource-constrained research, deep evaluation, and developing a first-principles understanding of how models work.
+
+**Question:** What are his main projects?
+**Answer:** His key projects are AgentFastbook, a system to automate the curation of RAG datasets; TinyScaleLab, a research initiative to pretrain and evaluate small language models from scratch; and his open-source contributions to parameter-efficient fine-tuning.
+
+**Question:** What is his core professional thesis or focus?
+**Answer:** His core professional focus, refined across all his roles, is building reliable systems. He operates on a strategic thesis he adopted from the GE and Answer.AI R&D lab: pursuing deep research ("the long leash") in direct service of a concrete, applied AI project ("the narrow fence"). You can see this strategy detailed in his video, "Finding My Moat in AI" (https://youtu.be/GkLAeWOi0r8).
+
+**Question:** Based on his portfolio, what kind of role is he looking for?
+**Answer:** He is seeking a role as an AI Engineer, Applied Scientist or ML Engineer where he can apply his skills in system design, deep evaluation, and first-principles debugging to solve challenging problems in AI reliability and efficiency.
+
+**Question:** Where can I find his work?
+**Answer:** You can find his work across three main platforms: his project portfolio and code on GitHub, his technical deep dives on his Blog, and his video walkthroughs on his YouTube channel. All are linked from his homepage, vishalbakshi.github.io.
