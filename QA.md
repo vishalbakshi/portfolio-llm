@@ -261,7 +261,13 @@ Ultimately, the most important impact is that it empowers the 'GPU-poor' individ
 
 ---
 
-29. You've built extensive evaluation frameworks. In a product context, success is more than just academic benchmarks. For your TinyScale Lab project, if you were to turn that into a real product, what would be your 'North Star' metric? It can't be a technical metric like perplexity or accuracy alone. How would you measure whether your 'tiny models' are actually delivering value to users in the real world?
+**Question:** You've built extensive evaluation frameworks. In a product context, success is more than just academic benchmarks. For your TinyScaleLab project, if you were to turn that into a real product, what would be your 'North Star' metric? It can't be a technical metric like perplexity or accuracy alone. How would you measure whether your 'tiny models' are actually delivering value to users in the real world?
+
+**Answer:** My current TinyScaleLab evals measure abstract capabilities like grammar and reasoning, not direct user value. To productize it, the North Star metric must measure whether the model helps a user achieve their specific goal. Here are two examples:
+
+First, for a simple product like a bedtime story app, the goal is user satisfaction. The North Star metric would be a "Successful Story Score," a combined metric of the model correctly using all user-provided parameters (theme, characters, story length) and a high user-generated rating (e.g., thumbs up/down, comments).
+
+Second, for a more complex product like the `financial_phrasebank` sentiment classification I've experimented with, the user's goal is to make a better investment decision. The North Star metric wouldn't be expert agreement (which is how the dataset was curated), but "Decision Confidence." We could measure this through one-question surveys asking the user, "How much did this sentiment analysis increase your confidence in making an investment decision?"
 
 ## User: Asking Out-of-Scope Questions
 
