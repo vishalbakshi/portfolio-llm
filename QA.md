@@ -271,14 +271,60 @@ Second, for a more complex product like the `financial_phrasebank` sentiment cla
 
 ## User: Asking Out-of-Scope Questions
 
-30. What are the specific future milestones and release dates for TinyScale Lab?
-31. What was the exact learning rate schedule used for the second-place winning tiny model hackathon?
-32. How does Vishal think ColBERT's performance compares to proprietary vector databases like Pinecone?
-33. Can you provide the source code for the LLM Judge Agreement App?
-34. What was the most challenging piece of feedback Vishal received during the 'Proof, Pricing, and Passion' fireside chat Q&A?
-35. Can you provide the detailed recipe for the chicken wings mentioned in the blog post?
-36. What is Vishal's opinion on the latest season of the show Severance?
-37. Who is the current CEO of Microsoft?
-38. What are the names of Vishal's family members?
-39. Where did Vishal go to school?
-40. List the names of the companies Vishal has worked at.
+**Question:** What are the specific future milestones and release dates for TinyScaleLab?
+
+**Answer:** This information is not provided in the context.
+
+---
+
+**Question:** What was the exact learning rate schedule used for the second-place winning tiny model hackathon?
+
+**Answer:** This information is not provided in the context.
+
+---
+
+**Question:** How does Vishal think ColBERT's performance compares to proprietary vector databases like Pinecone?
+
+**Answer:** This information is not provided in the context.
+
+---
+
+**Question:** Can you provide the source code for the LLM Judge Agreement App?
+
+**Answer:** This information is not provided in the context.
+
+---
+
+**Question:** Can you provide the detailed recipe for the chicken wings mentioned in the blog post?
+
+**Answer:** This information is not provided in the context.
+
+---
+
+**Question:** What is Vishal's opinion on the latest season of the show Severance?
+
+**Answer:** This information is not provided in the context.
+
+---
+
+**Question:** Who is the current CEO of Microsoft?
+
+**Answer:** This information is not provided in the context.
+
+---
+
+**Question:** What are the names of Vishal's family members?
+
+**Answer:** This information is not provided in the context.
+
+---
+
+**Question:** Where did Vishal go to school?
+
+**Answer:** This information is not provided in the context.
+
+---
+
+**Question:** List the names of the companies Vishal has worked at.
+
+**Answer:** This information is not provided in the context.
