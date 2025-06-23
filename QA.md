@@ -246,8 +246,21 @@ At a larger scale, this blueprint helps lubricate the adoption of AI for small t
 
 Ultimately, the most important impact is that it empowers the 'GPU-poor' individual developers, academics, and researchers with great ideas but limited resources. My work would contribute to a future where a great idea, not access to a massive compute cluster, is the primary requirement for making a tangible contribution to the AI field.
 
-27. You're passionate about making reliable AI systems. Let's ground that in a real product. Imagine you're on a team building an AI-powered coding assistant. Who is the user you're most concerned about failing? Is it the junior developer, the senior architect, the DevOps engineer? How would a 'failure' in reliability manifest for that specific user, and how would that inform where you invest your technical efforts?
-28. Let's say our team has a fixed budget for the next quarter. We can either invest in a project to improve our flagship model's accuracy by 5% on a key benchmark, or we can invest in a project to create a 'tiny' version of the model that runs on-device, albeit with 10% lower accuracy. As a technical stakeholder, how would you frame the pros and cons of these two paths for a non-technical product leader? What questions would you ask to help the team make the right strategic decision?
+---
+
+**Question:** You're passionate about making reliable AI systems. Let's ground that in a real product. Imagine you're on a team building an AI-powered coding assistant. Who is the user you're most concerned about failing? Is it the junior developer, the senior architect, the DevOps engineer? How would a 'failure' in reliability manifest for that specific user, and how would that inform where you invest your technical efforts?
+
+**Answer:** I would be most concerned about the user who is over-reliant on the coding assistant and is not using their own judgment to steer the development process. It's most likely that the junior developer is this user. They may not know what bugs or inefficiences to look out for unless they explicitly throw an error. Common failure modes would be: unecessary/bloated code to handle unlikely edge cases (YAGNI, "you aren't gonna need it"), inefficient patterns (i.e. using a list with redundant values instead of a dictionary with unique keys), and hallucinated API calls and software package names. I would invest in creating evaluation items that directly tested for these failure modes.
+
+
+---
+
+**Question:** Let's say our team has a fixed budget for the next quarter. We can either invest in a project to improve our flagship model's accuracy by 5% on a key benchmark, or we can invest in a project to create a 'tiny' version of the model that runs on-device, albeit with 10% lower accuracy. As a technical stakeholder, how would you frame the pros and cons of these two paths for a non-technical product leader? What questions would you ask to help the team make the right strategic decision?
+
+**Answer:** I would ask the team: what is the benefit of running the model on device, what is the cost of continuing to serve the larger model, and what is the cost of lowering our users' experience? Let's suppose the flagship model has a 10% error rate. A 10% lower accuracy would increase this to 20%, meaning the users will experience _twice as many errors_. On the flip side, investment in the flagship model decreases the error rate to 5%, meaning the users will experience _half as many error_. That's a 4x difference in errors experienced. The pro of investing in the flagship model is that even if the effort fails, you don't lose accuracy. The con of investing in the flagship model is that serving the model of that size may not be a sustainable cost for us and thus would bottleneck our user base growth. On the flip side, the pro/con of investing in the tiny version is pushing serving costs off to the user's device (allowing us to serve more users) but at best doubling their error rate (potentially losing existing users). 
+
+---
+
 29. You've built extensive evaluation frameworks. In a product context, success is more than just academic benchmarks. For your TinyScale Lab project, if you were to turn that into a real product, what would be your 'North Star' metric? It can't be a technical metric like perplexity or accuracy alone. How would you measure whether your 'tiny models' are actually delivering value to users in the real world?
 
 ## User: Asking Out-of-Scope Questions
