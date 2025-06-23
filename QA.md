@@ -43,7 +43,11 @@ This file contains questions and answers that will be included in my final `llms
 
 **Question:** Explain your "Building Reliable Systems" philosophy. How did your work in data compliance inform this approach?
 
-**Answer:** I have some thought on this thanks to Gemini and will fill this in later. 
+**Answer:** My philosophy for 'Building Reliable Systems' has two parts: first, focusing on reliability from day one, and second, establishing robust processes so reliability isn't a single point of failure.
+
+My seven years in data compliance taught me this firsthand. To ensure error-free state and federal reporting, I had to build a complete system—from initial metric design and data collection to ongoing QA and user training. I had to anticipate user pain points and build a process that made it easy for them to succeed.
+
+I approach my AI projects the same way. I start with evaluations to define success, perform granular analysis early to understand failure modes, and then establish a routine evaluation cadence. I'm even applying this to my applied AI career by taking the AI Evals course with Hamel Husain, ensuring I master the principles of rigor and evaluation before I focus on anything else.
 
 ---
 
