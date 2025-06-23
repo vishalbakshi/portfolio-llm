@@ -100,15 +100,64 @@ The final conclusion was that the unmerged LoRA layer, which performs four separ
 
 **Question:** You've done deep dives into both ColBERT and LLM-Foundry. What is a key design choice in one of those libraries that you find particularly elegant or effective?
 
-**Answer:** As someone who is GPU-poor, my favorite ColBERT design choice
+**Answer:** For ColBERT, as someone who is GPU-poor, my favorite design choice is its memory-efficient indexing. It encodes passages in batches and deletes the embeddings once they are compressed, which caps the maximum memory usage at 3-5GB whether you're indexing 10k or 10M documents. 
 
-10.  Based on your experiments with sequence packing, explain to a non-expert why simply enabling BinPackCollator in LLM-Foundry can lead to context contamination.
-11.  (For a Researcher role) Your "Small-scale proxies" paper summary mentions using tiny models to predict instabilities in large models. How would you design an experiment to test this for a novel architecture?
-12.  (For a Senior MLE role) You've explored full-precision vs. mixed-precision indexing in ColBERT. In a production environment with a tight budget, how would you decide which to use?
-13.  You've identified that building evaluation infrastructure is a critical, often overlooked part of ML projects. How would you pitch the importance of allocating engineering time to a project like your "LM Scoring App" to a leadership team focused on shipping features?
-14. Your fastbook-benchmark project is an excellent initiative for creating a high-quality evaluation dataset. Walk me through how you would productionize this system. How would you design a data pipeline that continuously and automatically ingests new information, runs your agent to generate question-answer pairs, and versions the dataset, ensuring reproducibility and reliability at 100x the scale?
-15. You have a background in high-stakes compliance and a stated interest in reliable systems. Tell me about the most complex and subtle bug you've encountered in an ML system, perhaps in your TinyScale Lab or RAG projects. How did you methodically diagnose and fix it? What did this experience teach you about building more resilient ML systems from the start?
-16. You've built your own evaluation framework for TinyScale Lab. In a team environment, we often have to decide whether to build a tool internally or use an existing third-party solution. When is it appropriate to build from scratch? Walk me through your decision-making process, using your evaluation framework as an example. What are the long-term maintenance and collaboration costs you'd consider?
+For LLM-Foundry, the most elegant choice is how it enables sequence packing by default for HuggingFace models. The default dataloader passes the `attention_mask` to the model, which correctly triggers `flash_attn_varlen_func` to perform sequence-packed attention calculations, improving training efficiency.
+
+---
+
+**Question:** Based on your experiments with sequence packing, explain to a non-expert why simply enabling `BinPackCollator` in LLM-Foundry can lead to context contamination.
+
+**Answer:** Through manual data inspection, I confirmed that LLM-Foundry's `BinPackCollator` packs multiple, separate training samples into a single long sequence.
+
+The problem is that the attention mechanism then treats this as one continuous text. This means tokens from one sample can 'attend to' and learn from tokens from a completely unrelated sample they were packed with.
+
+It's like reading a single page that's made of sentences from three different books mixed together. The model learns false relationships that don't exist in the real world, which is not ideal as it differs from how the model is used during inference.
+
+---
+
+**Question:** Your "Small-scale proxies" paper summary mentions using tiny models to predict instabilities in large models. How would you design an experiment to test this for a novel architecture?
+
+**Answer:** This would first involve identifying what type of instability the novel architecture experiences. To determine this I would fix all hyperparameters (dataset, number of epochs, optimizer, etc.) except learning rate. I would then perform a learning rate sweep from 3e-4 to 3e-1 and log different artifacts like intermediate layer logits and gradients. I would then analyze the logged data for any exploding or vanishing artifacts.
+
+Suppose that the attention logits explode for a particular large learning rate (as is the case in the paper). I would then document the maximum attention logit for tiny/small models of increasing size (10M, 50M, 100M, 200M, 400M, etc.). Using this data I would fit a line and predict the maximum attention logit for a much larger model size (5B). I would finally train  the larger 5B model with the same learning rate and identify the maximum attention logit. If the predicted and actual max attention logit are similar, we have some evidence that for this novel architecture small models are indeed proxies for large scale instabilities.
+
+---
+
+**Question:** You've explored full-precision vs. mixed-precision indexing in ColBERT. In a production environment with a tight budget, how would you decide which to use?
+
+**Answer:** My decision would follow a three-step framework: first verify the code, then define the business constraints, and finally test at scale. I found that mixed precision indexing for 70k documents was 2.5 times as slow as full precision indexing, used slightly more GPU memory, slightly less CPU memory, and 0.3% less Recall@10. In a production environment, I would first have a colleague thoroughly check my work---was there a bug in my manual edit of the ColBERT repo? If not, I would consider if indexing speed, GPU memory usage or CPU memory usage were more important. I would also index different and larger document collections to observe any trends at scale.
+
+---
+
+**Question:** You've identified that building evaluation infrastructure is a critical, often overlooked part of ML projects. How would you pitch the importance of allocating engineering time to a project like your "LM Scoring App" to a leadership team focused on shipping features?
+
+**Answer:** My pitch is that a small investment in custom evaluation tooling will actually help us ship reliable features faster. Using simple frameworks like FastHTML, we can build a custom scoring app in hours, not weeks. This gives our domain experts a targeted way to look at the model's outputs and quickly identify its core failure modes. This tight feedback loop is the fastest way to iterate and our engineers get a precise list of problems to fix. This ensures the feature we ship is not only fast to market but also something our users can trust.
+
+---
+
+**Question:** Your `fastbook-benchmark` project is an excellent initiative for creating a high-quality evaluation dataset. Walk me through how you would productionize this system. How would you design a data pipeline that continuously and automatically ingests new information, runs your agent to generate question-answer pairs, and versions the dataset, ensuring reproducibility and reliability at 100x the scale?
+
+**Answer:** I wouldn't scale to 100x immediately. My approach would be to first make the pipeline robust through incremental scaling using the 12 remaining fastbook chapters. I would iterate on the pipeline one chapter at a time. For each chapter, the system would use LLMs to generate the dataset items, and I would manually evaluate a sample of those outputs to identify common failure modes. This iterative loop of generating, evaluating, and improving the pipeline to address things like prompt failures or adding new tools would harden the system against a wide range of errors. Only after the pipeline is proven robust on the full fastbook dataset would I be confident in scaling it to handle a 100x increase in data.
+
+---
+
+**Question:** You have a background in high-stakes compliance and a stated interest in reliable systems. Tell me about the most complex and subtle bug you've encountered in an ML system. How did you methodically diagnose and fix it? What did this experience teach you about building more resilient ML systems from the start?
+
+**Answer:** The most subtle bug I found was when I discovered LLM-Foundry's `BinPackCollator` was causing context contamination across packed sequences.
+
+I diagnosed this methodically. First, I wrote a custom Composer callback to inspect decoded batch input_ids and labels and noticed that each batch item contained multiple sequences delimited by the EOS token, confirming packing was active. To confirm which Flash Attention interface was being used, I monkey-patched two transformers.modeling_flash_utils functions (_upad_input and prepare_fa2_from_position_ids) and confirmed that flash_attn_varlen_func was being used.
+
+The packer was concatenating separate sequences, and the attention function was treating it as one long, continuous sequence, allowing tokens from one example to attend to tokens from another, unrelated example.
+
+The fix was simple—I stopped using that collator—but the experience taught me a critical lesson about building resilient systems: you have to be able to inspect the data at every single stage of the pipeline, from collation to the forward pass. You can't trust that a tool is doing what you think it's doing without verifying it yourself.
+
+---
+
+**Question:** You've built your own evaluation framework for TinyScale Lab. In a team environment, we often have to decide whether to build a tool internally or use an existing third-party solution. When is it appropriate to build from scratch? Walk me through your decision-making process, using your evaluation framework as an example. What are the long-term maintenance and collaboration costs you'd consider?
+
+**Answer:** I'll reference what I've learned from Hamel Husain's AI Evals course FAQ: you should almost always build it from scratch. 
+
 17. In your AgentFastbook project, you're curating a clean, complex dataset. In a real-world product, the data is rarely this clean. Imagine you're tasked with building a RAG system for internal enterprise documents. What are the top three data quality challenges you would anticipate, and what specific strategies and tools would you employ to mitigate them before they impact model performance?
 18. our interest in tiny models and resource-constrained research is fascinating. Let's say we've trained a large, powerful model for a specific task, but it's too slow and expensive for a real-time mobile application. What are the different families of techniques you would consider to create a 'tiny' version of this model? Please discuss the trade-offs between methods like distillation, quantization, and pruning
 19. You’ve implemented many algorithms from scratch in your blog posts. Describe a time you had to work with a large, existing codebase you didn't create. How did you approach understanding the code, and how would you contribute a significant new feature (e.g., adding a new model architecture or data processing module) while adhering to existing design patterns and ensuring you don't break anything?
