@@ -49,13 +49,13 @@ This file contains questions and answers that will be included in my final `llms
 
 **Question:** You've mentioned the "Narrow Fence, Long Leash" philosophy. How does your TinyScale Lab project represent a "Long Leash" for your "Narrow Fence" project, AgentFastbook?
 
-**Answer:** Talk about the phased-approach for AgentFastbook and how Imagenette experiments are building me up to that.
+**Answer:** Talk about the phased-approach for AgentFastbook and how Imagenette experiments are building me up to phases 2 and 3.
 
 ---
 
-**Question:** In your "Finding My Moat" video, you talk about the importance of "boring" tasks. What is the most "boring" but critical part of the portfolio-llm project you're building?
+**Question:** In your "Finding My Moat" video, you talk about the importance of "boring" tasks. What is the most "boring" but critical part of a project you're building?
 
-**Answer:** Not sure about this one. Might switch it to asking about fastbook-benchmark, AgentFastbook or TinyScaleLab.
+**Answer:** TinyScaleLab: manually scoring 450 stories, then manually scoring agreement with 1350 LLM Judge scores, both which allowed me to identify common failure modes and gain confidence in using my LLM Judge. fastbook-benchmark: manually retrieving context from chapter text relevant to QA pairs to construct dataset, manually scoring Recall@10 and MRR@10 for hundreds of retrieval results, and performing question-by-question error analysis, all of which led me to deeply understand the dataset and common retrieval failure modes. Parameter-efficient finetuning using LLM-Foundry: manually inspecting preprocessed datasets, using a Composer callback to inspect weight types, batch data and loss values during training.
 
 ---
 
@@ -71,10 +71,37 @@ This file contains questions and answers that will be included in my final `llms
 
 ---
 
-6.  What is the core hypothesis of your TinyScale Lab project regarding the connection between training dynamics and model capabilities?
-7.  You built several custom apps for evaluation. What was the most challenging technical aspect of building the LLM Judge Agreement App with FastHTML?
-8.  In your debugging of LoRA models, you traced floating point errors back to the difference in matrix operations between merged and un-merged layers. Walk me through how you isolated that issue.
-9.  You've done deep dives into both ColBERT and LLM-Foundry. What is a key design choice in one of those libraries that you find particularly elegant or effective?
+**Question:** What is the core hypothesis of your TinyScale Lab project regarding the connection between training dynamics and model capabilities?
+
+**Answer:** That when training dynamics show instability (exploding activations and gradients) model capabilities (grammar, context-tracking, creativity, plot, reasoning, factual knowledge) will deteriorate.
+
+---
+**Question:** You built several custom apps for evaluation. What was the most challenging technical aspect of building the LLM Judge Agreement App with FastHTML?
+
+**Answer:** The most challenging aspect was balancing coding speed with app reliability. The judge agreement app stopped saving comments near the end of my evaluation, leading me to manually copy/paste the comments printed out in the terminal logs. I expect to do at least one more round of agreement scoring so this will be an issue that I need to resolve.
+
+---
+
+**Question:** In your debugging of LoRA models, you traced floating point errors back to the difference in matrix operations between merged and un-merged layers. Walk me through how you isolated that issue.
+
+**Answer:** I isolated that issue with a methodical process of elimination, starting broad and progressively narrowing down the problem.
+
+**First, I verified the weights**. I compared the weight matrices of the merged and unmerged LoRA layers and confirmed they were bit-for-bit identical. This ruled out any bugs in the weight-merging logic itself.
+
+**Next, I isolated the LoRA layers**. I checked the outputs of all non-LoRA layers in both models and found they were identical, which proved the discrepancy was happening exclusively within the LoRA layers.
+
+**Then, I pinpointed the forward pass**. The key discovery was that even with identical weights, the output of a single unmerged LoRA layer was different from its merged counterpart. This pointed directly to the forward pass operations as the source of the error.
+
+To confirm this, I used PyTorch's register_forward_hook to log the accumulating error. I saw the mean difference between the two models' outputs grow progressively at each layer, which is evidence of compounding floating-point error.
+
+The final conclusion was that the unmerged LoRA layer, which performs four separate matrix operations per layer (base_layer, lora_B, lora_B, summation), accumulates more precision errors than the merged layer, which performs only one. This difference, while tiny at each layer, becomes significant across the full depth of the model
+
+---
+
+**Question:** You've done deep dives into both ColBERT and LLM-Foundry. What is a key design choice in one of those libraries that you find particularly elegant or effective?
+
+**Answer:** As someone who is GPU-poor, my favorite ColBERT design choice
+
 10.  Based on your experiments with sequence packing, explain to a non-expert why simply enabling BinPackCollator in LLM-Foundry can lead to context contamination.
 11.  (For a Researcher role) Your "Small-scale proxies" paper summary mentions using tiny models to predict instabilities in large models. How would you design an experiment to test this for a novel architecture?
 12.  (For a Senior MLE role) You've explored full-precision vs. mixed-precision indexing in ColBERT. In a production environment with a tight budget, how would you decide which to use?
