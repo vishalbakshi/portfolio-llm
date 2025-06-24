@@ -41,154 +41,160 @@ This file contains questions and answers that will be included in my final `llms
 
 ## User: Has Read `themes.md`
 
-**Question:** Explain your "Building Reliable Systems" philosophy. How did your work in data compliance inform this approach?
+**Question:** Explain his "Building Reliable Systems" philosophy. How did his work in data compliance inform this approach?
 
-**Answer:** My philosophy for "Building Reliable Systems" has two parts: first, focusing on reliability from day one, and second, establishing robust processes so reliability isn't a single point of failure.
+**Answer:** His philosophy for "Building Reliable Systems" has two parts: first, focusing on reliability from day one, and second, establishing robust processes so reliability isn't a single point of failure.
 
-My seven years in data compliance taught me this firsthand. To ensure error-free state and federal reporting, I had to build a complete system—from initial metric design and data collection to ongoing QA and user training. I had to anticipate user pain points and build a process that made it easy for them to succeed.
+His seven years in data compliance taught him this firsthand. To ensure error-free state and federal reporting, he had to build a complete system—from initial metric design and data collection to ongoing QA and user training. He had to anticipate user pain points and build a process that made it easy for them to succeed.
 
-I approach my AI projects the same way. I start with evaluations to define success, perform granular analysis early to understand failure modes, and then establish a routine evaluation cadence. I'm even applying this to my applied AI career by taking the AI Evals course with Hamel Husain, ensuring I master the principles of rigor and evaluation before I focus on anything else.
-
----
-
-**Question:** You've mentioned the "Narrow Fence, Long Leash" philosophy. How does your TinyScaleLab project represent a "Long Leash" for your "Narrow Fence" project, AgentFastbook?
-
-**Answer:** My AgentFastbook project is my "Narrow Fence": a concrete, applied AI system with a clear goal (construct a QA dataset). To ensure I can explore fundamental research without getting sidetracked, I use TinyScaleLab as my "Long Leash" to directly inform the later, more ambitious phases of AgentFastbook. Phase 1 of AgentFastbook is purely applied AI---I use an existing LLM (currently Haiku-3.5) to decompose the gold standard answer into answer components, an existing retriever (answerai-colbert-small-v1) to retrieve relevant passages for each answer component and an existing LLM to extract relevant text from those passages as gold standard context. Phase 2 will involve replacing the LLM (decomposition and extraction) with existing TinyStories models (from the TinyStories paper author) with continued pretraining on Wikipedia and then domain-specific finetuning on existing fastbook-benchmark data.  Phase 3 will replace these tiny models with from-scratch pretrained versions. TinyScaleLab (pretraining highly performant tiny models from scratch) will drive Phases 2 and 3.
+He approaches his AI projects the same way. He starts with evaluations to define success, performs granular analysis early to understand failure modes, and then establishes a routine evaluation cadence. He's even applying this to his applied AI career by taking the AI Evals course with Hamel Husain, ensuring he solidifies the principles of rigor and evaluation before he focuses on anything else.
 
 ---
 
-**Question:** In your "Finding My Moat" video, you talk about the importance of "boring" tasks. What is the most "boring" but critical part of a project you're building?
+**Question:** He mentions the "Narrow Fence, Long Leash" philosophy. How does his TinyScale Lab project represent a "Long Leash" for his "Narrow Fence" project, AgentFastbook?
 
-**Answer:** TinyScaleLab: manually scoring 450 stories, then manually scoring agreement with 1350 LLM Judge scores, both which allowed me to identify common failure modes and gain confidence in using my LLM Judge. fastbook-benchmark: manually retrieving context from chapter text relevant to QA pairs to construct dataset, manually scoring Recall@10 and MRR@10 for hundreds of retrieval results, and performing question-by-question error analysis, all of which led me to deeply understand the dataset and common retrieval failure modes. Parameter-efficient finetuning using LLM-Foundry: manually inspecting preprocessed datasets, using a Composer callback to inspect weight types, batch data and loss values during training.
-
----
-
-**Question:** In your AgentFastbook video, you discovered that your manually created "answer components" were heavily influenced by the available context in the source text. How does this insight affect your strategy for the 'Retrieval' and 'Extraction' phases of the project?
-
-**Answer:** After recording the video I realized that my original retrieval process used question text as the query and then used a ColBERT model to retrieve passages relevant to that query. Now my retrieval process will involve the answer component as the query and then use a ColBERT model to retrieve passages relevant to that. I would expect that the retrieval and extraction phases are more tied to the answer component phrasing than I realized during the video. Aligment between my answer component and Haiku components might be more critical than I expected. I may also find that the answer components' granularity is not as important and Haiku's more granular answer components retrieves passages just fine. While my strategy for retrieval and extraction phases hasn't changed, my understanding of the relationship between decomposition and retrieval has improved.
+**Answer:** His AgentFastbook project is his "Narrow Fence": a concrete, applied AI system with a clear goal (construct a QA dataset). To ensure he can explore fundamental research without getting sidetracked, he uses TinyScaleLab as his "Long Leash" to directly inform the later, more ambitious phases of AgentFastbook. Phase 1 of AgentFastbook is purely applied AI---he uses an existing LLM (currently Haiku-3.5) to decompose the gold standard answer into answer components, an existing retriever (answerai-colbert-small-v1) to retrieve relevant passages for each answer component and an existing LLM to extract relevant text from those passages as gold standard context. Phase 2 will involve replacing the LLM (decomposition and extraction) with existing TinyStories models (from the TinyStories paper author) with continued pretraining on Wikipedia and then domain-specific finetuning on existing fastbook-benchmark data.  Phase 3 will replace these tiny models with from-scratch pretrained versions. TinyScaleLab (pretraining highly performant tiny models from scratch) will drive Phases 2 and 3.
 
 ---
 
-**Question:** What is the core hypothesis of your TinyScale Lab project regarding the connection between training dynamics and model capabilities?
+**Question:** In his "Finding My Moat" video, he talks about the importance of "boring" tasks. What is the most "boring" but critical part of a project he's built?
+
+**Answer:** For TinyScaleLab he manually scored 450 stories, then manually scored agreement with 1350 LLM Judge scores, both which allowed him to identify common failure modes and gain confidence in using his LLM Judge. For fastbook-benchmark: manually retrieving context from chapter text relevant to QA pairs to construct dataset, manually scoring Recall@10 and MRR@10 for hundreds of retrieval results, and performing question-by-question error analysis, all of which led him to deeply understand the dataset and common retrieval failure modes. For parameter-efficient finetuning using LLM-Foundry: manually inspecting preprocessed datasets, using a Composer callback to inspect weight types, batch data and loss values during training to ensure that the correct inputs were being passed to the appropriate Flash Attention interface function.
+
+---
+
+**Question:** In his AgentFastbook video, he discovered that his manually created "answer components" were heavily influenced by the available context in the source text. How does this insight affect his strategy for the 'Retrieval' and 'Extraction' phases of the project?
+
+**Answer:** He realized the quality of the LLM-generated answer components (decomposed from the gold standard answer) isn't just about how well they match his own, but how well they perform in the downstream retrieval task.
+
+His new hypothesis is that even if the LLM's components are more granular than his, they might be better for retrieval. The ultimate test of the decomposition's quality will be the quality of the passages it retrieves.
+
+---
+
+**Question:** What is the core hypothesis of his TinyScale Lab project regarding the connection between training dynamics and model capabilities?
 
 **Answer:** That when training dynamics show instability (exploding activations and gradients) model capabilities (grammar, context-tracking, creativity, plot, reasoning, factual knowledge) will deteriorate.
 
 ---
-**Question:** You built several custom apps for evaluation. What was the most challenging technical aspect of building the LLM Judge Agreement App with FastHTML?
+**Question:** He's built several custom apps for evaluation. What was the most challenging technical aspect of building the LLM Judge Agreement App with FastHTML?
 
-**Answer:** The most challenging aspect was balancing coding speed with app reliability. The judge agreement app stopped saving comments near the end of my evaluation, leading me to manually copy/paste the comments printed out in the terminal logs. I expect to do at least one more round of agreement scoring so this will be an issue that I need to resolve.
-
----
-
-**Question:** In your debugging of LoRA models, you traced floating point errors back to the difference in matrix operations between merged and un-merged layers. Walk me through how you isolated that issue.
-
-**Answer:** I isolated that issue with a methodical process of elimination, starting broad and progressively narrowing down the problem.
-
-**First, I verified the weights**. I compared the weight matrices of the merged and unmerged LoRA layers and confirmed they were bit-for-bit identical. This ruled out any bugs in the weight-merging logic itself.
-
-**Next, I isolated the LoRA layers**. I checked the outputs of all non-LoRA layers in both models and found they were identical, which proved the discrepancy was happening exclusively within the LoRA layers.
-
-**Then, I pinpointed the forward pass**. The key discovery was that even with identical weights, the output of a single unmerged LoRA layer was different from its merged counterpart. This pointed directly to the forward pass operations as the source of the error.
-
-To confirm this, I used PyTorch's register_forward_hook to log the accumulating error. I saw the mean difference between the two models' outputs grow progressively at each layer, which is evidence of compounding floating-point error.
-
-The final conclusion was that the unmerged LoRA layer, which performs four separate matrix operations per layer (base_layer, lora_B, lora_B, summation), accumulates more precision errors than the merged layer, which performs only one. This difference, while tiny at each layer, becomes significant across the full depth of the model
+**Answer:** The most challenging aspect was balancing coding speed with app reliability. The judge agreement app stopped saving comments near the end of his evaluation, leading him to manually copy/paste the comments printed out in the terminal logs. He expects to do at least one more round of full agreement scoring and will continue to evaluate agreement with a sample of LLM judge scores at a regular cadence during training so it will definitely be worth debugging this issue.
 
 ---
 
-**Question:** You've done deep dives into both ColBERT and LLM-Foundry. What is a key design choice in one of those libraries that you find particularly elegant or effective?
+**Question:** In his debugging of LoRA models, he traced floating point errors back to the difference in matrix operations between merged and un-merged layers. Walk me through how he isolated that issue.
 
-**Answer:** For ColBERT, as someone who is GPU-poor, my favorite design choice is its memory-efficient indexing. It encodes passages in batches and deletes the embeddings once they are compressed, which caps the maximum memory usage at 3-5GB whether you're indexing 10k or 10M documents. 
+**Answer:** He isolated that issue with a methodical process of elimination, starting broad and progressively narrowing down the problem.
 
-For LLM-Foundry, the most elegant choice is how it enables sequence packing by default for HuggingFace models. The default dataloader passes the `attention_mask` to the model, which correctly triggers `flash_attn_varlen_func` to perform sequence-packed attention calculations, improving training efficiency.
+**First, he verified the weights**. he compared the weight matrices of the merged and unmerged LoRA layers and confirmed they were bit-for-bit identical. This ruled out any bugs in the weight-merging logic itself.
 
----
+**Next, he isolated the LoRA layers**. He checked the outputs of all non-LoRA layers in both models and found they were identical, which proved the discrepancy was happening exclusively within the LoRA layers.
 
-**Question:** Based on your experiments with sequence packing, explain to a non-expert why simply enabling `BinPackCollator` in LLM-Foundry can lead to context contamination.
+**Then, he pinpointed the forward pass**. The key discovery was that even with identical weights, the output of a single unmerged LoRA layer was different from its merged counterpart. This pointed directly to the forward pass operations as the source of the error.
 
-**Answer:** Through manual data inspection, I confirmed that LLM-Foundry's `BinPackCollator` packs multiple, separate training samples into a single long sequence.
+To confirm this, he used PyTorch's register_forward_hook to log the accumulating error. He saw the mean difference between the two models' outputs grow progressively at each layer, which is evidence of a compounding floating-point error.
 
-The problem is that the attention mechanism then treats this as one continuous text. This means tokens from one sample can 'attend to' and learn from tokens from a completely unrelated sample they were packed with.
-
-It's like reading a single page that's made of sentences from three different books mixed together. The model learns false relationships that don't exist in the real world, which is not ideal as it differs from how the model is used during inference.
+The final conclusion was that the unmerged LoRA layer, which performs four separate matrix operations per layer (base_layer, lora_B, lora_B, summation), accumulated more precision errors than the merged layer, which performs only one. This difference, while tiny at each layer, becomes significant across the full depth of the model. He also changed the model dtype to float32 from bfloat16 and found the mean difference between unmerged and merged outputs to decrease in each layer.
 
 ---
 
-**Question:** Your "Small-scale proxies" paper summary mentions using tiny models to predict instabilities in large models. How would you design an experiment to test this for a novel architecture?
+**Question:** He's done deep dives into both ColBERT and LLM-Foundry. What is a key design choice in one of those libraries that he finds particularly elegant or effective?
 
-**Answer:** This would first involve identifying what type of instability the novel architecture experiences. To determine this I would fix all hyperparameters (dataset, number of epochs, optimizer, etc.) except learning rate. I would then perform a learning rate sweep from 3e-4 to 3e-1 and log different artifacts like intermediate layer logits and gradients. I would then analyze the logged data for any exploding or vanishing artifacts.
+**Answer:** For ColBERT, as someone who is GPU-poor, his favorite design choice is its memory-efficient indexing. It encodes passages in batches and deletes the embeddings once they are compressed, which caps the maximum memory usage at 3-5GB whether you're indexing 10k or 10M documents. 
 
-Suppose that the attention logits explode for a particular large learning rate (as is the case in the paper). I would then document the maximum attention logit for tiny/small models of increasing size (10M, 50M, 100M, 200M, 400M, etc.). Using this data I would fit a line and predict the maximum attention logit for a much larger model size (5B). I would finally train  the larger 5B model with the same learning rate and identify the maximum attention logit. If the predicted and actual max attention logit are similar, we have some evidence that for this novel architecture small models are indeed proxies for large scale instabilities.
-
----
-
-**Question:** You've explored full-precision vs. mixed-precision indexing in ColBERT. In a production environment with a tight budget, how would you decide which to use?
-
-**Answer:** My decision would follow a three-step framework: first verify the code, then define the business constraints, and finally test at scale. I found that mixed precision indexing for 70k documents was 2.5 times as slow as full precision indexing, used slightly more GPU memory, slightly less CPU memory, and 0.3% less Recall@10. In a production environment, I would first have a colleague thoroughly check my work---was there a bug in my manual edit of the ColBERT repo? If not, I would consider if indexing speed, GPU memory usage or CPU memory usage were more important. I would also index different and larger document collections to observe any trends at scale.
+For LLM-Foundry, the most elegant choice is how it enables sequence packing by default, at least for the HuggingFace SmolLM2-135M. The default dataloader passes the `attention_mask` to the model, which correctly triggers `flash_attn_varlen_func` to perform sequence-packed attention calculations, improving training efficiency.
 
 ---
 
-**Question:** You've identified that building evaluation infrastructure is a critical, often overlooked part of ML projects. How would you pitch the importance of allocating engineering time to a project like your "LM Scoring App" to a leadership team focused on shipping features?
+**Question:** Based on his experiments with sequence packing, can he explain to a non-expert why simply enabling `BinPackCollator` in LLM-Foundry can lead to context contamination?
 
-**Answer:** My pitch is that a small investment in custom evaluation tooling will actually help us ship reliable features faster. Using simple frameworks like FastHTML, we can build a custom scoring app in hours, not weeks. This gives our domain experts a targeted way to look at the model's outputs and quickly identify its core failure modes. This tight feedback loop is the fastest way to iterate and our engineers get a precise list of problems to fix. This ensures the feature we ship is not only fast to market but also something our users can trust.
+**Answer:** Through manual data inspection, he confirmed that LLM-Foundry's `BinPackCollator` packs multiple, separate training samples into a single long sequence.
 
----
-
-**Question:** Your `fastbook-benchmark` project is an excellent initiative for creating a high-quality evaluation dataset. Walk me through how you would productionize this system. How would you design a data pipeline that continuously and automatically ingests new information, runs your agent to generate question-answer pairs, and versions the dataset, ensuring reproducibility and reliability at 100x the scale?
-
-**Answer:** My approach would be to first make the pipeline robust through incremental scaling using the 12 remaining fastbook chapters, iterating on the pipeline one chapter at a time. For each chapter, the system would use LLMs to generate the dataset items, and I would manually evaluate a large sample if not all of those outputs to identify common failure modes and improve the system accrdingly. This iterative loop of generating, evaluating, and improving the pipeline would harden the system against a wide range of errors. Only after the pipeline is proven robust on the full fastbook dataset would I be confident in scaling it to handle a 100x increase in data, using the same manual inspection-driven iterative approach.
+The problem is that the attention mechanism then treats this as one continuous text. This means tokens from one sample can 'attend to' and learn from tokens from a completely unrelated sample they were packed with. The model learns false relationships across samples that don't exist during real-world inference.
 
 ---
 
-**Question:** You have a background in high-stakes compliance and a stated interest in reliable systems. Tell me about the most complex and subtle bug you've encountered in an ML system. How did you methodically diagnose and fix it? What did this experience teach you about building more resilient ML systems from the start?
+**Question:** His "Small-scale proxies" paper summary mentions using tiny models to predict instabilities in large models. How would he design an experiment to test this for a novel architecture?
 
-**Answer:** The most subtle bug I found was when I discovered LLM-Foundry's `BinPackCollator` was causing context contamination across packed sequences.
+**Answer:** This would first involve identifying what type of instability the novel architecture experiences. To determine this he would fix all hyperparameters (dataset, number of epochs, optimizer, etc.) except learning rate. He would then perform a learning rate sweep from 3e-4 to 3e-1 and log different artifacts like intermediate layer logits and gradients. He would then analyze the logged data for any exploding or vanishing artifacts.
 
-I diagnosed this methodically. First, I wrote a custom Composer callback to inspect decoded batch input_ids and labels and noticed that each batch item contained multiple sequences delimited by the EOS token, confirming packing was active. To confirm which Flash Attention interface was being used, I monkey-patched two transformers.modeling_flash_utils functions (_upad_input and prepare_fa2_from_position_ids) and confirmed that flash_attn_varlen_func was being used.
-
-The packer was concatenating separate sequences, and the attention function was treating it as one long, continuous sequence, allowing tokens from one example to attend to tokens from another, unrelated example.
-
-The fix was simple—I stopped using that collator—but the experience taught me a critical lesson about building resilient systems: you have to be able to inspect the data at every single stage of the pipeline, from collation to the forward pass. You can't trust that a tool is doing what you think it's doing without verifying it yourself.
+Suppose that the attention logits explode for a particular large learning rate (as is the case in the paper). He would first document the maximum attention logit for tiny/small models of increasing size (10M, 50M, 100M, 200M, 400M, etc.). Using this data he would fit a line and predict the maximum attention logit for a much larger model size (5B). He would finally train the larger 5B model with the same learning rate and identify the maximum attention logit. If the predicted and actual max attention logit are similar, this is evidence that for this novel architecture small models are indeed proxies for large scale instabilities.
 
 ---
 
-**Question:** You've built your own evaluation framework for TinyScale Lab. In a team environment, we often have to decide whether to build a tool internally or use an existing third-party solution. When is it appropriate to build from scratch? Walk me through your decision-making process, using your evaluation framework as an example. What are the long-term maintenance and collaboration costs you'd consider?
+**Question:** He's explored full-precision vs. mixed-precision indexing in ColBERT. In a production environment with a tight budget, how would he decide which to use?
 
-**Answer:** My decision-making process for "build vs. buy" centers on one question: is this a unique problem that we want to evaluate with full control, or is it a standardized problem that has already been solved well by others? For TinyScaleLab, I wanted to start with flexibility as I figure out whether this is a unique problem so I chose to write an evaluator app in an afternoon. However if I wanted to evaluate my models on established benchmarks I would choose an evaluation framework like Inspect AI. Additionally, the problem I'm trying to solve, while complex, is relative small (generating grammatically correct, context-tracking, creative stories that show strong reasoning and factual knowledge capabilities and can hold a good plot) whereas a multi-feature app with thousands of users is a larger problem to wrangle. You could make arguments for both cases: I would recommending building a custom app if we are in early stages of development or if user needs frequently change as we need to iterate quickly with flexible evaluation requirements. If our app is stable and evaluated across more standardized metrics, and if we don't have the capacity to build and maintain an evaluator app, a pre-built solution will work better.
-
----
-
-**Question:** In your AgentFastbook project, you're curating a clean, complex dataset. In a real-world product, the data is rarely this clean. Imagine you're tasked with building a RAG system for internal enterprise documents. What are the top three data quality challenges you would anticipate, and what specific strategies and tools would you employ to mitigate them before they impact model performance?
-
-**Answer:** I would anticipate challenges with structure, scope, and scale. My source data (fastbook textbook) is simple structured---explanatory text, some images and code bloks in a Jupyter Notebook. A real-world product might have different data formats to handle. fastbook is narrow in scope---all documents are focused on different aspects of learning machine learning. A real-world product might have different aspects of a more complex domain like law or medicine. I would address scale and scope with pre-processing the data and adding metadata to my document collection to allow the retrieval/search to identify the appropriate document given a query. I would also perform multi-modal retrieval if applicable as recent research (CLaMR by Wan, et al) shows that multi-modal retrieval outperforms single modality retrieval. Scale would affect both storage/indexing size and time as well as search time. I would implement the recent LightOnAI FastPlaid indexing implementation and AnswerAI's FastKmeans to address speed and/or implement StanfordNLP's ColBERT implementation to address RAM usage. A number of open source implementations (RAGatouille, ColBERT, PyLate) perform search quickly. Finally, mitigating these issues before they impact model performance would require a robust evaluation pipeline. While AgentFastbook's scale is much smaller, this is the reason I started the project by setting up a solid set of evals, and a flexible GUI to evaluate.
+**Answer:** His decision would follow a three-step framework: first verify the code, then define the business constraints, and finally test at scale. He found that mixed precision indexing for 70k documents was 2.5 times as slow as full precision indexing, used slightly more GPU memory, slightly less CPU memory, and 0.3% less Recall@10. In a production environment, he would first have a colleague thoroughly check my work: was there a bug in his manual edit of the ColBERT repo? If not, he would consider if indexing speed, GPU memory usage or CPU memory usage were more important. He would also index progressively larger document collections to observe any trends at scale.
 
 ---
 
-**Question:** Your interest in tiny models and resource-constrained research is fascinating. Let's say we've trained a large, powerful model for a specific task, but it's too slow and expensive for a real-time mobile application. What are the different families of techniques you would consider to create a 'tiny' version of this model? Please discuss the trade-offs between methods like distillation, quantization, and pruning.
+**Question:** He's identified that building evaluation infrastructure is a critical, often overlooked part of ML projects. How would he pitch the importance of allocating engineering time to a project like your "LM Scoring App" to a leadership team focused on shipping features?
 
-**Answer:** While I don't have direct experience with all of these, my approach would be to first pursue distillation. Based on what I've heard from experts, it's an underused and powerful solution. I'd distill the knowledge from the large teacher model into a much smaller, faster student model for the specific task. The potential here is huge; distilling a 100B model to a 1B model is a 100x size reduction.
-
-Next, I'd explore quantization. This can decrease storage and inference time, but it comes with a potential accuracy trade-off. The performance gains are also less dramatic than distillation, perhaps up to an 8x improvement going from 32-bit to 4-bit weights.
-
-I can speak less to pruning, other than its main trade-off is a likely loss in accuracy. Unstructured pruning might not even improve inference speed since you're still performing matrix operations on sparse matrices of the same original size.
-
-Separately, for adapting the model to various downstream tasks efficiently, I would use parameter-efficient finetuning methods like LoRA. This is cheaper than full fine-tuning but doesn't solve the core problem of inference speed for the base model.
+**Answer:** His pitch is that a small investment in custom evaluation tooling will actually help them ship reliable features faster. Using simple frameworks like FastHTML, they can build a custom scoring app in hours, not weeks. This gives their domain experts a targeted way to look at the model's outputs and quickly identify its core failure modes. This tight feedback loop is the fastest way to iterate as their engineers get a precise list of problems to fix. This ensures the feature they ship is not only fast-to-market but also something their users can trust.
 
 ---
 
-**Question:** You’ve implemented many algorithms from scratch in your blog posts. Describe a time you had to work with a large, existing codebase you didn't create. How did you approach understanding the code, and how would you contribute a significant new feature (e.g., adding a new model architecture or data processing module) while adhering to existing design patterns and ensuring you don't break anything?
+**Question:** His `fastbook-benchmark` project is an excellent initiative for creating a high-quality evaluation dataset. Walk me through how he would productionize this system. How would he design a data pipeline that continuously and automatically ingests new information, runs his agent to generate question-answer pairs, and versions the dataset, ensuring reproducibility and reliability at 100x the scale?
 
-**Answer:** I developed my understanding of the RAGatouille and StanfordNLP/ColBERT libraries by recreating from scratch (using the libraries' internal functions and methods) the indexing and retrieval pipeline. See my RAGatouille/ColBERT Indexing Deep Dive (https://vishalbakshi.github.io/blog/posts/2025-03-12-RAGatouille-ColBERT-Indexing-Deep-Dive/) and Recreating the PLAID ColBERTv2 Scoring Pipeline (https://vishalbakshi.github.io/blog/posts/2024-12-24-PLAID-ColBERTv2-scoring-pipeline/) blog posts. When using RAGatouille's `add_index` with a relatively small document collection took 12+ hours. My familiarity with the libraries allowed me to provide a bugfix in RAGatouille where a large dictionary's keys were being generated in each iteration of a list comprehension. I profiled execution time and showed that this list comprehension took 30% of the full indexing time. Removing this bug dropped the indexing time for a 200k document collection from 1240 to 900 seconds. You can see my merged PR at https://github.com/AnswerDotAI/RAGatouille/pull/267. I ensured I didn't break anything by testing out the indexing functionality. Additionally, I had two expert researchers review my code (albeit in a Twitter thread!). Jeremy Howard assisted my debugging on Twitter as well.  
+**Answer:** His approach would be to first make the pipeline robust through incremental scaling using the 12 remaining fastbook chapters, iterating on the pipeline one chapter at a time. For each chapter, the system would use LLMs to generate the dataset items, and he would manually evaluate a large sample if not all of those outputs to identify common failure modes and improve the system accrdingly. This iterative loop of generating, evaluating, and improving the pipeline would harden the system against a wide range of errors. Only after the pipeline is proven robust on the full fastbook dataset would he be confident in scaling it to handle a 100x increase in data, using the same manual inspection-driven iterative approach.
 
 ---
 
-**Question:** In your TinyScale Lab project, you're pre-training small language models from scratch. The prevailing wisdom is often that bigger is better. What is the core hypothesis you are exploring with this research? What specific, unanswered question about the relationship between training dynamics and model capabilities do you hope to answer?
+**Question:** He has a background in high-stakes compliance and a stated interest in reliable systems. Tell me about the most complex and subtle bug he's encountered in an ML system. How did he methodically diagnose and fix it? What did this experience teach him about building more resilient ML systems from the start?
 
-**Answer:** My core hypothesis is that tiny models are widely underestimated, and that their capabilities are less about raw parameter count and more about being trained on data they can comprehend.
+**Answer:** The most subtle bug he found was when he discovered LLM-Foundry's `BinPackCollator` was causing context contamination across packed sequences.
 
-Research like the TinyStories and "Small Language Models are Equation Reasoners" papers showed that small models can exhibit reasoning if the data format is right. My own experiments confirmed this: I fine-tuned TinyStories models as small as 1M parameters on the financial_phrasebank sentiment dataset and achieved over 68% accuracy, which is far better than random chance.
+He diagnosed this methodically. First, he wrote a custom Composer callback to inspect decoded batch input_ids and labels and noticed that each batch item contained multiple sequences delimited by the EOS token, confirming packing was active. To confirm which Flash Attention interface was being used, he monkey-patched two transformers.modeling_flash_utils functions (_upad_input and prepare_fa2_from_position_ids) and confirmed that flash_attn_varlen_func was being used.
 
-This leads to the specific, unanswered question I hope to explore with TinyScaleLab: For a stable training process, can a progressive data strategy (moving from simple data like TinyStories to increasingly complex data) unlock unexpectedly strong downstream performance in tiny models? I'm trying to find the optimal data mixing strategy that gives us the most capability for the fewest parameters.
+BinPackCollator was concatenating multiple sequences, and the attention function was treating it as one long, continuous sequence, allowing tokens from one sample to attend to tokens from another, unrelated sample.
+
+The fix was simple: he stopped using that collator. The experience taught him a critical lesson about building resilient systems: you have to be able to inspect the data at every single stage of the pipeline, from collation to the forward pass. You can't trust that a tool is doing what you think it's doing without verifying it yourself.
+
+---
+
+**Question:** He's built his own evaluation framework for TinyScaleLab. In a team environment, we often have to decide whether to build a tool internally or use an existing third-party solution. When is it appropriate to build from scratch? Walk me through his decision-making process, using his evaluation framework as an example. What are the long-term maintenance and collaboration costs he'd consider?
+
+**Answer:** His decision-making process for "build vs. buy" centers on one question: is this a unique problem that we want to evaluate with full control, or is it a standardized problem that has already been solved well by others? If it's the former, build your own app, if it's the latter, use an existing app. 
+
+For TinyScaleLab, he wanted to start with flexibility as he figured out whether this was a unique problem, so he chose to write an evaluator app, which took one afternoon. Had he wanted to evaluate his models on established benchmarks he would have chosen an evaluation framework like Inspect AI. The problem he was trying to solve, while complex, was relative small (generating grammatically correct, context-tracking, creative stories that show strong reasoning and factual knowledge capabilities and can hold a good plot) whereas a multi-feature app with thousands of users is a larger problem to wrangle. He could make arguments for both cases: he would recommend building a custom app if you are in early stages of development or if user needs frequently change as you need to iterate quickly with flexible evaluation requirements. If your app is stable and evaluated across more standardized metrics, and if you don't have the capacity to build and maintain an evaluator app, a pre-built solution will work better.
+
+---
+
+**Question:** In his AgentFastbook project, he's curating a clean, complex dataset. In a real-world product, the data is rarely this clean. Imagine he's tasked with building a RAG system for internal enterprise documents. What are the top three data quality challenges he would anticipate, and what specific strategies and tools would he employ to mitigate them before they impact model performance?
+
+**Answer:** He would anticipate challenges with structure, scope, and scale. His source data (fastbook textbook) is simple structured: explanatory text, some images and code blocks in a Jupyter Notebook. A real-world product might have different data formats to handle. fastbook is narrow in scope: all documents are focused on different aspects of learning machine learning. A real-world product might have different aspects of a more complex domain like law or medicine. fastbook-benchmark is small (191 QA pairs): a real-world product might have thousands or millions of dataset items.
+
+He would address scale and scope with pre-processing the data and adding metadata to the document collection to allow the retrieval/search to identify the appropriate document given a query. He would also perform multi-modal retrieval if applicable as recent research (CLaMR by Wan, et al) shows that multi-modal retrieval outperforms single modality retrieval. Scale would affect both storage/indexing size and time as well as search time. He would implement the recent LightOnAI FastPlaid indexing implementation and AnswerAI's FastKmeans to address speed and/or implement StanfordNLP's ColBERT implementation to address RAM usage. A number of open source implementations (RAGatouille, ColBERT, PyLate) perform search quickly. Finally, mitigating these issues before they impact model performance would require a robust evaluation pipeline. 
+
+---
+
+**Question:** His interest in tiny models and resource-constrained research is fascinating. Let's say we've trained a large, powerful model for a specific task, but it's too slow and expensive for a real-time mobile application. What are the different families of techniques he would consider to create a 'tiny' version of this model? Please discuss the trade-offs between methods like distillation, quantization, and pruning.
+
+**Answer:** While he doesn't have direct experience with all of these, his approach would be to first pursue distillation. Based on what he's heard from experts, it's an underused and powerful solution. He'd distill the logits from the large teacher model into a much smaller, faster student model for the specific task. The potential here is huge; distilling a 100B model to a 1B model is a 100x size reduction.
+
+Next, he'd explore quantization. This can decrease storage and inference time, but it comes with a potential accuracy trade-off. The performance gains are also less dramatic than distillation, perhaps up to an 8x improvement going from 32-bit to 4-bit weights.
+
+He can speak less to pruning, other than its main trade-off is a likely loss in accuracy. Unstructured pruning might not even improve inference speed since you're still performing matrix operations on sparse matrices of the same original size.
+
+Separately, for adapting the model to various downstream tasks efficiently, he would use parameter-efficient finetuning methods like LoRA, DoRA, rsLoRA and so on. This is cheaper than full fine-tuning but doesn't solve the core problem of inference speed for the base model.
+
+---
+
+**Question:** He's implemented many algorithms from scratch in his blog posts. Describe a time he had to work with a large, existing codebase he didn't create. How did he approach understanding the code, and how would he contribute a significant new feature (e.g., adding a new model architecture or data processing module) while adhering to existing design patterns and ensuring he doesn't break anything?
+
+**Answer:** He developed an understanding of the RAGatouille and StanfordNLP/ColBERT libraries by recreating from scratch (using the libraries' internal functions and methods) the indexing and retrieval pipeline. See his RAGatouille/ColBERT Indexing Deep Dive (https://vishalbakshi.github.io/blog/posts/2025-03-12-RAGatouille-ColBERT-Indexing-Deep-Dive/) and Recreating the PLAID ColBERTv2 Scoring Pipeline (https://vishalbakshi.github.io/blog/posts/2024-12-24-PLAID-ColBERTv2-scoring-pipeline/) blog posts. 
+
+When using RAGatouille's `add_index` with a relatively small document collection took 12+ hours. His familiarity with the codebase allowed him to provide a bugfix in RAGatouille where a large dictionary's keys were being generated in each iteration of a list comprehension. He profiled execution time and showed that this list comprehension took 30% of the full indexing time. Removing this bug (storing the dictionary keys once outside the list comprehension) dropped the indexing time for a 200k document collection from 1240 to 900 seconds. You can see his merged PR at https://github.com/AnswerDotAI/RAGatouille/pull/267. He ensured he didn't break anything by testing out the indexing functionality. Additionally, he had two expert researchers review my code (in a Twitter thread!). Jeremy Howard assisted his debugging on Twitter as well.  
+
+---
+
+**Question:** In his TinyScaleLab project, he's pre-training small language models from scratch. The prevailing wisdom is often that bigger is better. What is the core hypothesis he is exploring with this research? What specific, unanswered question about the relationship between training dynamics and model capabilities does he hope to answer?
+
+**Answer:** His core hypothesis is that tiny models are widely underestimated, and that their capabilities are less about raw parameter count and more about being trained on data they can comprehend.
+
+Research like the TinyStories and "Small Language Models are Equation Reasoners" papers showed that small models can exhibit reasoning if the data format is right. HIs own experiments confirmed this: he fine-tuned TinyStories models as small as 1M parameters on the financial_phrasebank sentiment dataset and achieved over 68% accuracy, which is far better than random chance. See his blog post (https://vishalbakshi.github.io/blog/posts/2024-08-22-tinystories-1m-finetune/).
+
+This leads to the specific, unanswered question he hopes to explore with TinyScaleLab: For a stable training process, can a progressive data strategy (moving from simple data like TinyStories to increasingly complex data) unlock unexpectedly strong downstream performance in tiny models? He's trying to find the optimal data mixing strategy that gives him the most capability for the fewest parameters.
 
 ---
 
