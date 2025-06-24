@@ -86,11 +86,11 @@ His new hypothesis is that even if the LLM's components are more granular than h
 
 **Answer:** He isolated that issue with a methodical process of elimination, starting broad and progressively narrowing down the problem.
 
-**First, he verified the weights**. he compared the weight matrices of the merged and unmerged LoRA layers and confirmed they were bit-for-bit identical. This ruled out any bugs in the weight-merging logic itself.
+_First, he verified the weights_. he compared the weight matrices of the merged and unmerged LoRA layers and confirmed they were bit-for-bit identical. This ruled out any bugs in the weight-merging logic itself.
 
-**Next, he isolated the LoRA layers**. He checked the outputs of all non-LoRA layers in both models and found they were identical, which proved the discrepancy was happening exclusively within the LoRA layers.
+_Next, he isolated the LoRA layers_. He checked the outputs of all non-LoRA layers in both models and found they were identical, which proved the discrepancy was happening exclusively within the LoRA layers.
 
-**Then, he pinpointed the forward pass**. The key discovery was that even with identical weights, the output of a single unmerged LoRA layer was different from its merged counterpart. This pointed directly to the forward pass operations as the source of the error.
+_Then, he pinpointed the forward pass_. The key discovery was that even with identical weights, the output of a single unmerged LoRA layer was different from its merged counterpart. This pointed directly to the forward pass operations as the source of the error.
 
 To confirm this, he used PyTorch's register_forward_hook to log the accumulating error. He saw the mean difference between the two models' outputs grow progressively at each layer, which is evidence of a compounding floating-point error.
 
