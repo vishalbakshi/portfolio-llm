@@ -2,7 +2,7 @@
 
 This is a work in progress. I plan to launch it with a video and blog post by 7/1/2025.
 
-An engineered professional portfolio designed to be reliably queried by an LLM. This project uses a curated context file (llms_ctx.txt) and a rigorous evaluation framework to provide an accurate and interactive overview of my skills and experience.
+An engineered professional portfolio designed to be reliably queried by an LLM. This project uses a curated context file ([llms_ctx.txt](https://raw.githubusercontent.com/vishalbakshi/portfolio-llm/refs/heads/main/llms_ctx.txt)) and a rigorous evaluation framework to provide an accurate and interactive overview of my skills and experience.
 
 ## An Interactive Way to Learn About My Work
 
@@ -42,53 +42,49 @@ Below are the core themes that structure my work. Use these to ask more specific
 
 ### Theme 2: The `fastbook-benchmark` Project: Building & Evaluating RAG Systems
 
-* **Video:** Introducing the fastbook-benchmark Information Retrieval QA Dataset 
-* **Blog Post:** Evaluating 4 Retrieval Methods with 6 Chunking Strategies on my `fastbook-benchmark` Dataset 
-* **Blog Post:** Conducting a Question-by-Question Error Analysis on Semantic Search Results
-* **Video:** Can an LLM Curate a Dataset? Live-Evaluating Haiku's Text Decomposition
+* [fastbook-benchmark GitHub repo](https://github.com/vishalbakshi/fastbook-benchmark)
+* [Introducing the fastbook-benchmark Information Retrieval QA Dataset](https://youtu.be/VsVIy8k9rMU) 
+* [Scoring Full Text and Semantic Search on Chunk Sizes from 100 to 2000 Tokens](https://vishalbakshi.github.io/blog/posts/2024-11-29-fastbook-benchmark-results/)
+* [Conducting a Question-by-Question Error Analysis on Full Text Search Results](https://vishalbakshi.github.io/blog/posts/2024-09-05-fastbookRAG-bm25-error-analysis/)
+* [Can an LLM Curate a Dataset? Live-Evaluating Haiku's Text Decomposition](https://youtu.be/NwPKy1rqXT8)
 
 ### Theme 3: Deconstructing SOTA Libraries (ColBERT, LLM-Foundry, PEFT)
 
-* **Video:** RAGatouille/ColBERT Indexing Deep Dive
-* **Video:** Do RAGatouille and ColBERT Produce the Same Index and Retrieval Scores?
-* **Video:** LossInspector: A Deep Dive Into LLM-Foundry's Next-Token Prediction 
-* **Video:** `LoraModel.merge_and_unload` Deep Dive 
-* **Video:** Code Walkthrough - peft DoRA Implementation
+* [RAGatouille/ColBERT Indexing Deep Dive](https://youtu.be/P9KXQ7pbv9s)
+* [Recreating the PLAID ColBERTv2 Scoring Pipeline](https://vishalbakshi.github.io/blog/posts/2024-12-24-PLAID-ColBERTv2-scoring-pipeline/)
+* [LossInspector: A Deep Dive Into LLM-Foundry's Next-Token Prediction](https://youtu.be/9ffnmeiDF_M)
+* [`LoraModel.merge_and_unload` Deep Dive](https://youtu.be/NEosNY_d4zg) 
+* [Code Walkthrough - peft DoRA Implementation](https://youtu.be/GE6jRudHhzY)
 
 ### Theme 4: The Science of 'Why It's Broken and How it Works': Low-Level Debugging
 
-* **Video:** Understanding Sequence Packing: Initial Musings 
-* **Video:** HuggingFace's Default KV Cache and the `flash_attn_varlen_func` Docstring 
-* **Video:** Debugging Un-Merged and Merged LoRA Model Output Differences 
-* **Video:** TIL: Using PyTorch's `register_forward_hook` to Trace Floating Point Errors
-* **Video:** Understanding Eager Bidirectional Attention via the Attention Mask
-* **Blog Post:** Exploring Precision in ColBERT Indexing and Retrieval
+* [Understanding Sequence Packing: Initial Musings](https://youtu.be/xWnMDL9FDbg) 
+* [HuggingFace's Default KV Cache and the `flash_attn_varlen_func` Docstring](https://youtu.be/pZpK5uGr7Lo) 
+* [Debugging Un-Merged and Merged LoRA Model Output Differences](https://youtu.be/7fM8FClG66s) 
+* [TIL: Using PyTorch's `register_forward_hook` to Trace Floating Point Errors](https://youtu.be/Y6qgWxU3oO4)
+* [Understanding Eager Bidirectional Attention via the Attention Mask](https://youtu.be/u_v6HHyv4No)
+* [Exploring Precision in ColBERT Indexing and Retrieval](https://youtu.be/aiNQ4I8YaD0)
 
 ### Theme 5: Implementation from Scratch
 
-* **Video:** Understanding the Mean Shift Clustering Algorithm (and PyTorch Broadcasting)  
-* **Blog Post:** Implementing a Decision Tree Algorithm from Scratch 
-* **Video:** The Evolution of Matrix Multiplication Part 2
-* **Blog Post:** Implementing Negative Prompting for Stable Diffusion
-* **Blog Post:** Implementing Image-to-Image Generation for Stable Diffusion
+* [Understanding the Mean Shift Clustering Algorithm (and PyTorch Broadcasting)](https://youtu.be/kfl-cUz9iWw)  
+* [The Evolution of Matrix Multiplication Part 2](https://youtu.be/iV63qy4ETJQ)
+* [Implementing Negative Prompting for Stable Diffusion](https://youtu.be/_nzRTwEb47A)
+* [Implementing Image-to-Image Generation for Stable Diffusion](https://youtu.be/POisZHNP23c)
   
 ### Theme 6: Bridging AI Research & Practice
 
-* **Video**: Research Paper Summary: TinyStories
-* **Video:** Research Paper Summary: Tulu 3 
-* **Video:** Research Paper Summary: Small-scale proxies for large-scale Transformer training instabilities 
-* **Video:** Technical Report Summary: Nomic Embed 
-* **Blog Post:** Paper Math: DPO (Direct Preference Optimization) 
+* [TinyScaleLab: Exploring the Connection Between Training Dynamics and Model Capabilities](https://youtu.be/82mE39Ef5eY) 
+* [Research Paper Summary: TinyStories](https://youtu.be/VqgHxKSEspw)
+* [Research Paper Summary: Small-scale proxies for large-scale Transformer training instabilities](https://youtu.be/wY774B4JNLM)
 
 ### Theme 7: Career Meta-Narrative
 
-* **Video:** Finding My Moat: How Boring Tasks, Expert Advice and the AI Evals Course are Shaping My AI Projects 
-* **Video:** Proof, Pricing, and Passion: Finding My Path in Machine Learning
+* [Finding My Moat in AI: How Boring Tasks, Expert Advice and the AI Evals Course are Shaping My AI Projects](https://youtu.be/GkLAeWOi0r8)
+* [Proof, Pricing, and Passion: Finding My Path in Machine Learning](https://youtu.be/9s88C8XBBiQ)
 
 ### Theme 8: The Applied Learning Journey
 
-* **Blog Post:** Practical Deep Learnings For Coders - Part 1 Notes and Examples
-* **Kaggle Notebook:** BirdCLEF 2024 Recap (0.61 Final LB Score) 
-* **Blog Post:** How Does Stable Diffusion Work?
-* **Blog Post:** An Analysis of Batch Size vs. Learning Rate on Imagenette
-* **Blog Post:** Takeaways from Gemini Deep Research Report on Small Batch Training Challenges
+* [BirdCLEF 2024 Recap (0.61 Final LB Score)](https://www.kaggle.com/code/vishalbakshi/birdclef-2024-recap-0-61-final-lb-score) 
+* [How Does Stable Diffusion Work?](https://vishalbakshi.github.io/blog/posts/2024-08-08-how-does-stable-diffusion-work/index.html)
+* [Takeaways from Gemini's Deep Research Report for Small Batch Training](https://youtu.be/HMOyhKnZ5W0)
