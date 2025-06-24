@@ -338,3 +338,47 @@ Second, for a more complex product using the `financial_phrasebank` sentiment cl
 **Question:** List the names of the companies Vishal has worked at.
 
 **Answer:** This information is not provided in the context.
+
+---
+
+**Question:** What was the estimated cost savings of using Haiku-3.5 compared to a larger model like Opus for Phase 1 of AgentFastbook?
+
+**Answer:** This information is not provided in the context.
+
+---
+
+**Question:** During his seven years in data compliance, which specific state or federal regulations (e.g., FERPA, HIPAA) did his reporting systems have to adhere to?
+
+**Answer:** This information is not provided in the context.
+
+---
+
+**Question:** What version of PyTorch and the transformers library was he using when he diagnosed the LoRA floating point bug?
+
+**Answer:** This information is not provided in the context.
+
+---
+
+**Question:** Given his deep dive on ColBERT, what does he view as the primary performance trade-offs between ColBERT's late-interaction mechanism and a bi-encoder model?
+
+**Answer:** This information is not provided in the context.
+
+---
+
+**Question:** What was the final validation accuracy he achieved on the Imagenette dataset after completing his 'prerequisite' project?
+
+**Answer:** This information is not provided in the context.
+
+---
+
+**Question:** Who at the GE or Answer.AI R&D lab was the originator of the 'Narrow Fence, Long Leash' philosophy that he adopted?
+
+**Answer:** This information is not provided in the context.
+
+---
+
+**Question:** In his work with LLM-Foundry, what was the specific name of the custom Composer callback class he wrote to inspect batch data during training?
+
+**Answer:** This information is not provided in the context.
+
+---
