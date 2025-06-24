@@ -1,10 +1,4 @@
-## Background
-
-This is where I'm workshopping the content I'll put on my vishalbakshi.github.io landing page.
-
-## Landing Page Content
-
-### An Interactive Way to Learn About My Work
+## An Interactive Way to Learn About My Work
 
 This portfolio is designed to be interactive. You can have a conversation with it using any modern LLM (like Gemini, Claude, or ChatGPT).
 
@@ -29,7 +23,7 @@ Here is the text:
 
 ## For a Deeper Dive
 
-Below are the core themes that structure my work. Use these to ask more specific questions, such as "Tell me about the 'Building Evaluation Infrastructure' theme."
+Below are the core themes that structure my work. Use these to ask more specific questions, such as "Tell me about the AgentFastbook, TinyScaleLab and fastbook-benchmark projects", or "What is his experience with the StanfordNLP/ColBERT library?"
 
 ### Theme 1: Building Evaluation Infrastructure & LLM Judges
 
