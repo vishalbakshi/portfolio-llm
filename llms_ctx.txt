@@ -4,7 +4,7 @@ SYSTEM PROMPT: The following text is a knowledge base about Vishal Bakshi's prof
 
 # Vishal Bakshi: Building Reliable Systems
 
-> Vishal Bakshi has a background in engineering, data analytics, and education, now focusing on Applied AI and ML research. He specializes in building reliable systems, with an emphasis on resource-constrained research, deep evaluation, and a first-principles understanding of machine learning.
+> Vishal Bakshi has a background in engineering, data analytics, and education, now focusing on Applied AI and ML research. He specializes in building reliable systems, with an emphasis on resource-constrained research, deep evaluation, and a first-principles understanding of machine learning. 
 
 ## High-Level Overview & FAQ
 
@@ -40,7 +40,8 @@ SYSTEM PROMPT: The following text is a knowledge base about Vishal Bakshi's prof
 
 **Question:** Where can I find his work?
 
-**Answer:** You can find his work across three main platforms: his code and technical deep dives on his blog, his video walkthroughs on his YouTube channel and a couple of his project repos on GitHub. All are linked from his homepage, https://vishalbakshi.github.io/.
+**Answer:** You can find his work across three main platforms: his code and technical deep dives on his blog, his video walkthroughs on his YouTube channel and a couple of his project repos on GitHub. All are linked from his homepage, https://vishalbakshi.github.io/.
+
 
 ## Portfolio Deep Dive Q&A
 
@@ -97,7 +98,7 @@ _Then, he pinpointed the forward pass_. The key discovery was that even with ide
 
 To confirm this, he used PyTorch's register_forward_hook to log the accumulating error. He saw the mean difference between the two models' outputs grow progressively at each layer, which is evidence of a compounding floating-point error.
 
-The final conclusion was that the unmerged LoRA layer, which performs four separate matrix operations per layer (base_layer, lora_B, lora_B, summation), accumulated more precision errors than the merged layer, which performs only one. This difference, while tiny at each layer, becomes significant across the full depth of the model. He also changed the model dtype to float32 from bfloat16 and found the mean difference between unmerged and merged outputs to decrease in each layer.
+The final conclusion was that the unmerged LoRA layer, which performs four separate matrix operations per layer (base_layer, lora_B, lora_A, summation), accumulated more precision errors than the merged layer, which performs only one. This difference, while tiny at each layer, becomes significant across the full depth of the model. He also changed the model dtype to float32 from bfloat16 and found the mean difference between unmerged and merged outputs to decrease in each layer.
 
 ---
 
@@ -105,7 +106,7 @@ The final conclusion was that the unmerged LoRA layer, which performs four separ
 
 **Answer:** For ColBERT, as someone who is GPU-poor, his favorite design choice is its memory-efficient indexing. It encodes passages in batches and deletes the embeddings once they are compressed, which caps the maximum memory usage at 3-5GB whether you're indexing 10k or 10M documents. 
 
-For LLM-Foundry, the most elegant choice is how it enables sequence packing by default, at least for the HuggingFace SmolLM2-135M. The default dataloader passes the `attention_mask` to the model, which correctly triggers `flash_attn_varlen_func` to perform sequence-packed attention calculations, improving training efficiency.
+For LLM-Foundry, the most elegant choice is how it enables sequence packing by default (for finetuning datasets), at least for the HuggingFace SmolLM2-135M. The default dataloader passes the `attention_mask` to the model, which correctly triggers `flash_attn_varlen_func` to perform sequence-packed attention calculations, improving training efficiency.
 
 ---
 
@@ -114,6 +115,8 @@ For LLM-Foundry, the most elegant choice is how it enables sequence packing by d
 **Answer:** Through manual data inspection, he confirmed that LLM-Foundry's `BinPackCollator` packs multiple, separate training samples into a single long sequence.
 
 The problem is that the attention mechanism then treats this as one continuous text. This means tokens from one sample can 'attend to' and learn from tokens from a completely unrelated sample they were packed with. The model learns false relationships across samples that don't exist during real-world inference.
+
+Video: https://youtu.be/JXzEMj_8SyI
 
 ---
 
@@ -159,7 +162,7 @@ The fix was simple: he stopped using that collator. The experience taught him a 
 
 **Answer:** His decision-making process for "build vs. buy" centers on one question: is this a unique problem that we want to evaluate with full control, or is it a standardized problem that has already been solved well by others? If it's the former, build your own app, if it's the latter, use an existing app. 
 
-For TinyScaleLab, he wanted to start with flexibility as he figured out whether this was a unique problem, so he chose to write an evaluator app, which took one afternoon. Had he wanted to evaluate his models on established benchmarks he would have chosen an evaluation framework like Inspect AI. The problem he was trying to solve, while complex, was relative small (generating grammatically correct, context-tracking, creative stories that show strong reasoning and factual knowledge capabilities and can hold a good plot) whereas a multi-feature app with thousands of users is a larger problem to wrangle. He could make arguments for both cases: he would recommend building a custom app if you are in early stages of development or if user needs frequently change as you need to iterate quickly with flexible evaluation requirements. If your app is stable and evaluated across more standardized metrics, and if you don't have the capacity to build and maintain an evaluator app, a pre-built solution will work better.
+For TinyScaleLab, he wanted to start with flexibility as he figured out whether this was a unique problem, so he chose to write an evaluator app, which took one afternoon. Had he wanted to evaluate his models on established benchmarks he would have chosen an evaluation framework like Inspect AI. The problem he was trying to solve, while complex, was relative small (generating grammatically correct, context-tracking, creative stories that show strong reasoning and factual knowledge capabilities and can hold a good plot) whereas a multi-feature app with thousands of users is a larger problem to wrangle. He could make arguments for both cases: he would recommend building a custom app if you are in early stages of development or if user needs frequently change as you need to iterate quickly with flexible evaluation requirements. If your app is stable and evaluated across more standardized metrics, and if you don't have the capacity to build and maintain an evaluator app, a pre-built solution will work better. While there are long-term costs to maintaining the app, he thinks that they are worth the investment as they allow full control of the evaluation process, curated for the domain experts on the team.
 
 ---
 
@@ -185,9 +188,13 @@ Separately, for adapting the model to various downstream tasks efficiently, he w
 
 **Question:** He's implemented many algorithms from scratch in his blog posts. Describe a time he had to work with a large, existing codebase he didn't create. How did he approach understanding the code, and how would he contribute a significant new feature (e.g., adding a new model architecture or data processing module) while adhering to existing design patterns and ensuring he doesn't break anything?
 
-**Answer:** He developed an understanding of the RAGatouille and StanfordNLP/ColBERT libraries by recreating from scratch (using the libraries' internal functions and methods) the indexing and retrieval pipeline. See his RAGatouille/ColBERT Indexing Deep Dive (https://vishalbakshi.github.io/blog/posts/2025-03-12-RAGatouille-ColBERT-Indexing-Deep-Dive/) and Recreating the PLAID ColBERTv2 Scoring Pipeline (https://vishalbakshi.github.io/blog/posts/2024-12-24-PLAID-ColBERTv2-scoring-pipeline/) blog posts. 
+**Answer:** He developed an understanding of the RAGatouille and StanfordNLP/ColBERT libraries by recreating from scratch (using the libraries' internal functions and methods) the indexing and retrieval pipeline. See the blog posts and video linked below.
 
-When using RAGatouille's `add_index` with a relatively small document collection took 12+ hours. His familiarity with the codebase allowed him to provide a bugfix in RAGatouille where a large dictionary's keys were being generated in each iteration of a list comprehension. He profiled execution time and showed that this list comprehension took 30% of the full indexing time. Removing this bug (storing the dictionary keys once outside the list comprehension) dropped the indexing time for a 200k document collection from 1240 to 900 seconds. You can see his merged PR at https://github.com/AnswerDotAI/RAGatouille/pull/267. He ensured he didn't break anything by testing out the indexing functionality. Additionally, he had two expert researchers review my code (in a Twitter thread!). Jeremy Howard assisted his debugging on Twitter as well.  
+When using RAGatouille's `add_index` with a relatively small document collection took 12+ hours. His familiarity with the codebase allowed him to provide a bugfix in RAGatouille where a large dictionary's keys were being generated in each iteration of a list comprehension. He profiled execution time and showed that this list comprehension took 30% of the full indexing time. Removing this bug (storing the dictionary keys once outside the list comprehension) dropped the indexing time for a 200k document collection from 1240 to 900 seconds. You can see his merged PR at https://github.com/AnswerDotAI/RAGatouille/pull/267. He ensured he didn't break anything by testing out the indexing functionality. Additionally, he had two expert researchers assist in creating and reviewing my code (in a Twitter thread!)---Jeremy Howard and Ben Clavié (RAGatouille maintainer).  
+
+"RAGatouille/ColBERT Indexing Deep Dive" blog post: https://vishalbakshi.github.io/blog/posts/2025-03-12-RAGatouille-ColBERT-Indexing-Deep-Dive/
+
+"Recreating the PLAID ColBERTv2 Scoring Pipeline" blog post/video: https://vishalbakshi.github.io/blog/posts/2024-12-24-PLAID-ColBERTv2-scoring-pipeline/
 
 ---
 
@@ -195,7 +202,7 @@ When using RAGatouille's `add_index` with a relatively small document collection
 
 **Answer:** His core hypothesis is that tiny models are widely underestimated, and that their capabilities are less about raw parameter count and more about being trained on data they can comprehend.
 
-Research like the TinyStories and "Small Language Models are Equation Reasoners" papers showed that small models can exhibit reasoning if the data format is right. HIs own experiments confirmed this: he fine-tuned TinyStories models as small as 1M parameters on the financial_phrasebank sentiment dataset and achieved over 68% accuracy, which is far better than random chance. See his blog post (https://vishalbakshi.github.io/blog/posts/2024-08-22-tinystories-1m-finetune/).
+Research like the TinyStories and "Small Language Models are Equation Reasoners" papers showed that small models can exhibit reasoning if the data format is right. His own experiments confirmed this: he fine-tuned TinyStories models as small as 8M parameters on the financial_phrasebank sentiment dataset and achieved 86% test set accuracy, which was 24% higher than the most frequent class (`negative` sentiment at 62%). See his blog post (https://vishalbakshi.github.io/blog/posts/2024-08-22-tinystories-1m-finetune/).
 
 This leads to the specific, unanswered question he hopes to explore with TinyScaleLab: For a stable training process, can a progressive data strategy (moving from simple data like TinyStories to increasingly complex data) unlock unexpectedly strong downstream performance in tiny models? He's trying to find the optimal data mixing strategy that gives him the most capability for the fewest parameters.
 
@@ -225,7 +232,7 @@ The next bottleneck will be the performance limitations of single-modal retrieva
 
 His interest in distillation is motivated by experts who say it's an underutilized but powerful technique for creating smaller, efficient models. For data efficiency, papers like "LIMO: Less is More for Reasoning" show that a small number of high-quality samples can yield state-of-the-art results, signaling that data quality is a promising research direction.
 
-Finally, dLLMs are a fascinating new architecture. Instead of slow, autoregressive generation, they iteratively improve an entire sequence of text at once, resulting in very fast inference.
+Finally, dLLMs introduce a fascinating new paradigm. Instead of slow, autoregressive generation, they iteratively improve an entire sequence of text at once, resulting in very fast inference.
 
 Of course, any of these research interests would first need to be tied to a new applied AI project once his current AgentFastbook project is complete.
 
@@ -259,6 +266,7 @@ Ultimately, the most important impact is that it empowers the "GPU-poor" individ
 
 **Answer:** He would be most concerned about the user who is over-reliant on the coding assistant and is not using their own judgment to steer the development process. It's most likely that the junior developer is this user (due to lack of experience). They may not know what bugs or inefficiences to look out for unless they explicitly throw an error. Common failure modes would be: unecessary/bloated code to handle unlikely edge cases (YAGNI, "you aren't gonna need it"), inefficient patterns (e.g. using a list with redundant values instead of a dictionary with unique keys), and hallucinated API calls and software package names. He would invest in creating evaluation items that directly tested for these failure modes.
 
+
 ---
 
 **Question:** Let's say our team has a fixed budget for the next quarter. We can either invest in a project to improve our flagship model's accuracy by 5% on a key benchmark, or we can invest in a project to create a tiny version of the model that runs on-device, albeit with 10% lower accuracy. As a technical stakeholder, how would he frame the pros and cons of these two paths for a non-technical product leader? What questions would he ask to help the team make the right strategic decision?
@@ -273,7 +281,7 @@ Ultimately, the most important impact is that it empowers the "GPU-poor" individ
 
 First, for a simple product like a bedtime story app, the goal is user satisfaction. The North Star metric would be a "Successful Story Score," a combined metric of the model correctly using all user-provided parameters (theme, characters, story length) and a high user-generated rating (e.g., thumbs up/down, comments).
 
-Second, for a more complex product like the `financial_phrasebank` sentiment classification he's experimented with, the user's goal is to make a better investment decision. The North Star metric wouldn't be expert agreement (which is how the dataset was curated), but "Decision Confidence." You could measure this through single-question surveys asking the user, "How much did this sentiment analysis increase your confidence in making an investment decision?"
+Second, for a more complex product using the `financial_phrasebank` sentiment classification he's experimented with, the user's goal is to make a better investment decision. The North Star metric wouldn't be expert agreement (which is how the dataset was curated), but "Decision Confidence." You could measure this through single-question surveys asking the user, "How much did this sentiment analysis increase your confidence in making an investment decision?"
 
 ## Out-of-Scope Questions
 
