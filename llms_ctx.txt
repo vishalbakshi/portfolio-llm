@@ -210,7 +210,7 @@ This leads to the specific, unanswered question he hopes to explore with TinySca
 
 **Question:** Let's dive deeper into the custom evaluation framework for his TinyScaleLab. What makes it 'custom'? What phenomena can he measure with it that he couldn't with standard benchmarks like GLUE? How does he ensure your evaluation results are statistically significant and not just noise?
 
-**Answer:** It's custom because standard benchmarks like GLUE often test for structured outputs, while he wanted to measure more complex, free-form capabilities like grammar, creativity, plot, reasoning, and context-tracking. His framework is designed to score these dimensions, inspired by the evaluation paradigm in the TinyStories paper. 
+**Answer:** It's custom because standard benchmarks like GLUE often require specific output formats, while he wanted to measure more complex, free-form capabilities like grammar, creativity, plot, reasoning, and context-tracking. His framework is designed to score these dimensions, inspired by the evaluation paradigm in the TinyStories paper. 
 
 To ensure the results were significant and not just noise, he created a rigorous process to align an LLM Judge with his own manual annotations. He started by manually scoring 1350 total LLM judge scores across 18 criteria, and where he found my agreement with the LLM Judge was below 80%, he iterated on the scoring criteria and the prompt itself. This allowed him to focus on the criteria the LLM Judge could reliably score, and as a result, after another round of annotating 1350 scores he achieved 94% alignment between his scores and the judge's, giving him high confidence in the evaluation results.
 
