@@ -43,7 +43,7 @@ This file contains questions and answers that will be included in my final `llms
 
 **Question:** Explain your "Building Reliable Systems" philosophy. How did your work in data compliance inform this approach?
 
-**Answer:** My philosophy for 'Building Reliable Systems' has two parts: first, focusing on reliability from day one, and second, establishing robust processes so reliability isn't a single point of failure.
+**Answer:** My philosophy for "Building Reliable Systems" has two parts: first, focusing on reliability from day one, and second, establishing robust processes so reliability isn't a single point of failure.
 
 My seven years in data compliance taught me this firsthand. To ensure error-free state and federal reporting, I had to build a complete system—from initial metric design and data collection to ongoing QA and user training. I had to anticipate user pain points and build a process that made it easy for them to succeed.
 
@@ -51,9 +51,9 @@ I approach my AI projects the same way. I start with evaluations to define succe
 
 ---
 
-**Question:** You've mentioned the "Narrow Fence, Long Leash" philosophy. How does your TinyScale Lab project represent a "Long Leash" for your "Narrow Fence" project, AgentFastbook?
+**Question:** You've mentioned the "Narrow Fence, Long Leash" philosophy. How does your TinyScaleLab project represent a "Long Leash" for your "Narrow Fence" project, AgentFastbook?
 
-**Answer:** Talk about the phased-approach for AgentFastbook and how Imagenette experiments are building me up to phases 2 and 3.
+**Answer:** My AgentFastbook project is my "Narrow Fence": a concrete, applied AI system with a clear goal (construct a QA dataset). To ensure I can explore fundamental research without getting sidetracked, I use TinyScaleLab as my "Long Leash" to directly inform the later, more ambitious phases of AgentFastbook. Phase 1 of AgentFastbook is purely applied AI---I use an existing LLM (currently Haiku-3.5) to decompose the gold standard answer into answer components, an existing retriever (answerai-colbert-small-v1) to retrieve relevant passages for each answer component and an existing LLM to extract relevant text from those passages as gold standard context. Phase 2 will involve replacing the LLM (decomposition and extraction) with existing TinyStories models (from the TinyStories paper author) with continued pretraining on Wikipedia and then domain-specific finetuning on existing fastbook-benchmark data.  Phase 3 will replace these tiny models with from-scratch pretrained versions. TinyScaleLab (pretraining highly performant tiny models from scratch) will drive Phases 2 and 3.
 
 ---
 
@@ -66,12 +66,6 @@ I approach my AI projects the same way. I start with evaluations to define succe
 **Question:** In your AgentFastbook video, you discovered that your manually created "answer components" were heavily influenced by the available context in the source text. How does this insight affect your strategy for the 'Retrieval' and 'Extraction' phases of the project?
 
 **Answer:** After recording the video I realized that my original retrieval process used question text as the query and then used a ColBERT model to retrieve passages relevant to that query. Now my retrieval process will involve the answer component as the query and then use a ColBERT model to retrieve passages relevant to that. I would expect that the retrieval and extraction phases are more tied to the answer component phrasing than I realized during the video. Aligment between my answer component and Haiku components might be more critical than I expected. I may also find that the answer components' granularity is not as important and Haiku's more granular answer components retrieves passages just fine. While my strategy for retrieval and extraction phases hasn't changed, my understanding of the relationship between decomposition and retrieval has improved.
-
----
-
-**Question:** What was the most surprising failure mode you encountered when evaluating Haiku's text decomposition performance on your fastbook-benchmark?
-
-**Answer:** 
 
 ---
 
