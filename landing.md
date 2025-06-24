@@ -10,9 +10,22 @@ This portfolio is designed to be interactive. You can have a conversation with i
 
 How it Works:
 
-1. [Click here to copy the portfolio context to your clipboard.](https://github.com/vishalbakshi/portfolio-llm/blob/main/llms_ctx.txt)
-2. Go to your favorite LLM and paste the entire text into the chat window.
-3. Start asking questions! For example: "Who is Vishal?" or "What are his main projects?"
+1. Copy my [portfolio llms_ctx.txt](https://raw.githubusercontent.com/vishalbakshi/portfolio-llm/refs/heads/main/llms_ctx.txt)
+2. Go to your favorite LLM and paste the following prompt followed by the llms_ctx.txt content:
+
+```
+I'm going to give you a block of text that is a professional portfolio for Vishal Bakshi.
+
+After you read it, I will ask you some questions.
+
+Please base all of your answers only on the text I've provided and don't use any of your outside knowledge.
+
+If you can't find an answer in the text, it's important that you say the information is not available.
+
+Here is the text:
+```
+  
+4. Start asking questions! For example: "Who is Vishal?" or "What are his main projects?"
 
 #### For a Deeper Dive
 
