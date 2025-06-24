@@ -136,7 +136,7 @@ Suppose that the attention logits explode for a particular large learning rate (
 
 **Question:** Your `fastbook-benchmark` project is an excellent initiative for creating a high-quality evaluation dataset. Walk me through how you would productionize this system. How would you design a data pipeline that continuously and automatically ingests new information, runs your agent to generate question-answer pairs, and versions the dataset, ensuring reproducibility and reliability at 100x the scale?
 
-**Answer:** I wouldn't scale to 100x immediately. My approach would be to first make the pipeline robust through incremental scaling using the 12 remaining fastbook chapters. I would iterate on the pipeline one chapter at a time. For each chapter, the system would use LLMs to generate the dataset items, and I would manually evaluate a sample of those outputs to identify common failure modes. This iterative loop of generating, evaluating, and improving the pipeline to address things like prompt failures or adding new tools would harden the system against a wide range of errors. Only after the pipeline is proven robust on the full fastbook dataset would I be confident in scaling it to handle a 100x increase in data.
+**Answer:** My approach would be to first make the pipeline robust through incremental scaling using the 12 remaining fastbook chapters, iterating on the pipeline one chapter at a time. For each chapter, the system would use LLMs to generate the dataset items, and I would manually evaluate a large sample if not all of those outputs to identify common failure modes and improve the system accrdingly. This iterative loop of generating, evaluating, and improving the pipeline would harden the system against a wide range of errors. Only after the pipeline is proven robust on the full fastbook dataset would I be confident in scaling it to handle a 100x increase in data, using the same manual inspection-driven iterative approach.
 
 ---
 
@@ -218,7 +218,7 @@ My interest in distillation is motivated by experts who say it's an underutilize
 
 Finally, dLLMs are a fascinating new architecture. Instead of slow, autoregressive generation, they iteratively improve an entire sequence of text at once, resulting in very fast inference.
 
-Of course, any of these research interests would first need to be tied to a new applied AI project once my current work is complete
+Of course, any of these research interests would first need to be tied to a new applied AI project once my current work is complete.
 
 ---
 
