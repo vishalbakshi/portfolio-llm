@@ -102,7 +102,7 @@ The final conclusion was that the unmerged LoRA layer, which performs four separ
 
 **Answer:** For ColBERT, as someone who is GPU-poor, his favorite design choice is its memory-efficient indexing. It encodes passages in batches and deletes the embeddings once they are compressed, which caps the maximum memory usage at 3-5GB whether you're indexing 10k or 10M documents. 
 
-For LLM-Foundry, the most elegant choice is how it enables sequence packing by default, at least for the HuggingFace SmolLM2-135M. The default dataloader passes the `attention_mask` to the model, which correctly triggers `flash_attn_varlen_func` to perform sequence-packed attention calculations, improving training efficiency.
+For LLM-Foundry, the most elegant choice is how it enables sequence packing by default (for finetuning datasets), at least for the HuggingFace SmolLM2-135M. The default dataloader passes the `attention_mask` to the model, which correctly triggers `flash_attn_varlen_func` to perform sequence-packed attention calculations, improving training efficiency.
 
 ---
 
