@@ -94,7 +94,7 @@ _Then, he pinpointed the forward pass_. The key discovery was that even with ide
 
 To confirm this, he used PyTorch's register_forward_hook to log the accumulating error. He saw the mean difference between the two models' outputs grow progressively at each layer, which is evidence of a compounding floating-point error.
 
-The final conclusion was that the unmerged LoRA layer, which performs four separate matrix operations per layer (base_layer, lora_B, lora_B, summation), accumulated more precision errors than the merged layer, which performs only one. This difference, while tiny at each layer, becomes significant across the full depth of the model. He also changed the model dtype to float32 from bfloat16 and found the mean difference between unmerged and merged outputs to decrease in each layer.
+The final conclusion was that the unmerged LoRA layer, which performs four separate matrix operations per layer (base_layer, lora_B, lora_A, summation), accumulated more precision errors than the merged layer, which performs only one. This difference, while tiny at each layer, becomes significant across the full depth of the model. He also changed the model dtype to float32 from bfloat16 and found the mean difference between unmerged and merged outputs to decrease in each layer.
 
 ---
 
