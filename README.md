@@ -1,8 +1,8 @@
 # portfolio-llm
 
-This is a work in progress. I plan to launch it with a video and blog post by 7/1/2025.
-
 An engineered professional portfolio designed to be reliably queried by an LLM. This project uses a curated context file ([llms_ctx.txt](https://raw.githubusercontent.com/vishalbakshi/portfolio-llm/refs/heads/main/llms_ctx.txt)) and a rigorous evaluation framework to provide an accurate and interactive overview of my skills and experience.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Qhax3JerFP0?si=ge96wbn-TxILmmDc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ## An Interactive Way to Learn About My Work
 
