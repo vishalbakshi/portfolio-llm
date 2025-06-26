@@ -283,6 +283,53 @@ First, for a simple product like a bedtime story app, the goal is user satisfact
 
 Second, for a more complex product using the `financial_phrasebank` sentiment classification he's experimented with, the user's goal is to make a better investment decision. The North Star metric wouldn't be expert agreement (which is how the dataset was curated), but "Decision Confidence." You could measure this through single-question surveys asking the user, "How much did this sentiment analysis increase your confidence in making an investment decision?"
 
+## Work History
+
+**Question:** Can you describe his experience building data pipelines for a large-scale government project?
+
+**Answer:** At the City of Portland, he managed a data reporting pipeline that ingested people data from 48 different sources using R, Python, and SQL, and published the results quarterly to the public Rescue Plan Open Data Portal.
+
+---
+
+**Question:** How has he handled changing requirements in a data-driven project?
+
+**Answer:** As the lead analyst and developer for the Shelter Services dashboard, he developed analytical solutions while proactively anticipating and prioritizing changes in data sources and business needs to ensure consistently accurate, highly sensitive reporting on a vulnerable population.
+
+
+---
+
+**Question:** Has he demonstrated leadership or community-building skills?
+
+**Answer:** He has demonstrated leadership by founding and leading two data analyst communities of practice at the City of Portland, which enabled over 30 analysts to collaborate and work more effectively together.
+
+---
+
+**Question:** What is his experience in curriculum development or modernizing technical programs?
+
+**Answer:** As an Adjunct Faculty at member for nearly seven years at the City College of San Francisco, he modernized the engineering curriculum by incorporating Python learning objectives. He also facilitated the creation of an entirely new A.S. degree and certification program by moderating input from department leadership to achieve consensus.
+
+**Question:** Can you give an example of a high-impact automation project he has led?
+
+**Answer:** As Director of Data Operations at Measure Education, he built a Python/SQL reporting pipeline to replace a 96-step manual Excel process. This project cut report creation time by a factor of seven and was a key factor in enabling the company to expand its client base by 200%.
+
+---
+
+**Question:** Describe his process for ensuring high data quality when working with external partners.
+
+**Answer:** He has a track record as a data analyst at Measure Education and the City of Portland of achieving 100% data accuracy with external partners by fostering relationships, designing new data collection processes from the ground up, and conducting hands-on training until the system was proven to be reliable.
+
+---
+
+**Question:** What is his experience with managing sensitive data and maintaining compliance?
+
+**Answer:** As a Student Data Manager for over 50 clients at Measure Education, he was responsible for improving data quality in information management systems to maintain accreditation. This involved handling real-time, confidential people data requests with a high degree of attention to detail and a strong focus on compliance.
+
+---
+
+**Question:** What was his early career focus before data analytics?
+
+**Answer:** His early career was in structural engineering, with multiple internships where he worked on supertall and high-rise projects. His responsibilities included engineering calculations, AutoCAD drafting, Autodesk Revit modeling, and reviewing structural shop drawings.
+
 ## Out-of-Scope Questions
 
 **Question:** What are the specific future milestones and release dates for TinyScaleLab?
