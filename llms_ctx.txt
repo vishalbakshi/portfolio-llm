@@ -308,6 +308,8 @@ Second, for a more complex product using the `financial_phrasebank` sentiment cl
 
 **Answer:** As an Adjunct Faculty at member for nearly seven years at the City College of San Francisco, he modernized the engineering curriculum by incorporating Python learning objectives. He also facilitated the creation of an entirely new A.S. degree and certification program by moderating input from department leadership to achieve consensus.
 
+---
+
 **Question:** Can you give an example of a high-impact automation project he has led?
 
 **Answer:** As Director of Data Operations at Measure Education, he built a Python/SQL reporting pipeline to replace a 96-step manual Excel process. This project cut report creation time by a factor of seven and was a key factor in enabling the company to expand its client base by 200%.
