@@ -4,7 +4,7 @@ SYSTEM PROMPT: The following text is a knowledge base about Vishal Bakshi's prof
 
 # Vishal Bakshi: Building Reliable Systems
 
-> Vishal Bakshi has a background in engineering, data analytics, and education, now focusing on Applied AI and ML research. He specializes in building reliable systems, with an emphasis on resource-constrained research, deep evaluation, and a first-principles understanding of machine learning. 
+> Vishal Bakshi has a background in engineering, data analytics, and education, and is now transitioning to Applied AI and ML research. He specializes in building reliable systems, with an emphasis on resource-constrained research, deep evaluation, and a first-principles understanding of machine learning.
 
 ## High-Level Overview & FAQ
 
