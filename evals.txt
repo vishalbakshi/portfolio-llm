@@ -2825,5 +2825,180 @@ While the portfolio mentions that he "used a Composer callback to inspect weight
 <conciseness>Concise</conciseness>
 <hallucinations>nan</hallucinations>
 <format-adherence>Followed</format-adherence>
+</item><item>
+<model>Claude Sonnet 4</model>
+<prompt-type>Unit Test<prompt-type>
+<user>Work History</user>
+<prompt>Can you describe his experience building data pipelines for a large-scale government project?</prompt>
+<response>Based on the information provided, at the City of Portland, Vishal managed a data reporting pipeline that ingested people data from 48 different sources using R, Python, and SQL, and published the results quarterly to the public Rescue Plan Open Data Portal.</response>
+<gold-answer>At the City of Portland, he managed a data reporting pipeline that ingested people data from 48 different sources using R, Python, and SQL, and published the results quarterly to the public Rescue Plan Open Data Portal.</gold-answer>
+<completeness>Full</completeness>
+<accuracy>Perfect</accuracy>
+<conciseness>Concise</conciseness>
+<hallucinations>nan</hallucinations>
+<format-adherence>Followed</format-adherence>
+</item><item>
+<model>Claude Sonnet 4</model>
+<prompt-type>Unit Test<prompt-type>
+<user>Work History</user>
+<prompt>How has he handled changing requirements in a data-driven project?</prompt>
+<response>According to the document, Vishal handled changing requirements in a data-driven project as the lead analyst and developer for the Shelter Services dashboard. He developed analytical solutions while proactively anticipating and prioritizing changes in data sources and business needs to ensure consistently accurate, highly sensitive reporting on a vulnerable population.</response>
+<gold-answer>As the lead analyst and developer for the Shelter Services dashboard, he developed analytical solutions while proactively anticipating and prioritizing changes in data sources and business needs to ensure consistently accurate, highly sensitive reporting on a vulnerable population.</gold-answer>
+<completeness>Full</completeness>
+<accuracy>Perfect</accuracy>
+<conciseness>Concise</conciseness>
+<hallucinations>nan</hallucinations>
+<format-adherence>Followed</format-adherence>
+</item><item>
+<model>Claude Sonnet 4</model>
+<prompt-type>Unit Test<prompt-type>
+<user>Work History</user>
+<prompt>Has he demonstrated leadership or community-building skills?</prompt>
+<response>Yes, according to the document, Vishal has demonstrated leadership by founding and leading two data analyst communities of practice at the City of Portland, which enabled over 30 analysts to collaborate and work more effectively together.</response>
+<gold-answer>He has demonstrated leadership by founding and leading two data analyst communities of practice at the City of Portland, which enabled over 30 analysts to collaborate and work more effectively together.</gold-answer>
+<completeness>Full</completeness>
+<accuracy>Perfect</accuracy>
+<conciseness>Concise</conciseness>
+<hallucinations>nan</hallucinations>
+<format-adherence>Followed</format-adherence>
+</item><item>
+<model>Claude Sonnet 4</model>
+<prompt-type>Unit Test<prompt-type>
+<user>Work History</user>
+<prompt>What is his experience in curriculum development or modernizing technical programs?</prompt>
+<response>Based on the document, Vishal has significant experience in curriculum development and modernizing technical programs:
+
+As an Adjunct Faculty member for nearly seven years at the City College of San Francisco, he modernized the engineering curriculum by incorporating Python learning objectives. He also facilitated the creation of an entirely new A.S. degree and certification program by moderating input from department leadership to achieve consensus.
+
+This demonstrates his ability to both update existing curricula with modern technical skills (Python) and lead collaborative efforts to develop completely new educational programs.</response>
+<gold-answer>As an Adjunct Faculty at member for nearly seven years at the City College of San Francisco, he modernized the engineering curriculum by incorporating Python learning objectives. He also facilitated the creation of an entirely new A.S. degree and certification program by moderating input from department leadership to achieve consensus.</gold-answer>
+<completeness>Full</completeness>
+<accuracy>Perfect</accuracy>
+<conciseness>Verbose</conciseness>
+<hallucinations>nan</hallucinations>
+<format-adherence>Followed</format-adherence>
+</item><item>
+<model>Claude Sonnet 4</model>
+<prompt-type>Unit Test<prompt-type>
+<user>Work History</user>
+<prompt>Can you give an example of a high-impact automation project he has led?</prompt>
+<response>Based on the document, as Director of Data Operations at Measure Education, Vishal built a Python/SQL reporting pipeline to replace a 96-step manual Excel process. This project cut report creation time by a factor of seven and was a key factor in enabling the company to expand its client base by 200%.</response>
+<gold-answer>As Director of Data Operations at Measure Education, he built a Python/SQL reporting pipeline to replace a 96-step manual Excel process. This project cut report creation time by a factor of seven and was a key factor in enabling the company to expand its client base by 200%.</gold-answer>
+<completeness>Full</completeness>
+<accuracy>Perfect</accuracy>
+<conciseness>Concise</conciseness>
+<hallucinations>nan</hallucinations>
+<format-adherence>Followed</format-adherence>
+</item><item>
+<model>Claude Sonnet 4</model>
+<prompt-type>Unit Test<prompt-type>
+<user>Work History</user>
+<prompt>Describe his process for ensuring high data quality when working with external partners.</prompt>
+<response>According to the document, Vishal has a track record as a data analyst at Measure Education and the City of Portland of achieving 100% data accuracy with external partners through a three-part process:
+
+1. **Fostering relationships** - Building strong working relationships with external partners
+2. **Designing new data collection processes from the ground up** - Creating entirely new systems rather than trying to fix existing broken processes
+3. **Conducting hands-on training until the system was proven to be reliable** - Providing direct, practical training to partners and continuing until the system demonstrates consistent reliability
+
+This comprehensive approach combines relationship management, systematic process design, and thorough training to ensure data quality meets the highest standards when collaborating with external organizations.</response>
+<gold-answer>He has a track record as a data analyst at Measure Education and the City of Portland of achieving 100% data accuracy with external partners by fostering relationships, designing new data collection processes from the ground up, and conducting hands-on training until the system was proven to be reliable.</gold-answer>
+<completeness>Full</completeness>
+<accuracy>Perfect</accuracy>
+<conciseness>Verbose</conciseness>
+<hallucinations>nan</hallucinations>
+<format-adherence>Followed</format-adherence>
+</item><item>
+<model>Claude Sonnet 4</model>
+<prompt-type>Unit Test<prompt-type>
+<user>Work History</user>
+<prompt>What is his experience with managing sensitive data and maintaining compliance?</prompt>
+<response>According to the document, Vishal has experience managing sensitive data and maintaining compliance in the following ways:
+
+As a Student Data Manager for over 50 clients at Measure Education, he was responsible for improving data quality in information management systems to maintain accreditation. This involved handling real-time, confidential people data requests with a high degree of attention to detail and a strong focus on compliance.
+
+Additionally, his seven years in data compliance taught him how to build complete systems for ensuring error-free state and federal reporting. He had to build processes from initial metric design and data collection to ongoing QA and user training, anticipating user pain points and building processes that made it easy for users to succeed.</response>
+<gold-answer>As a Student Data Manager for over 50 clients at Measure Education, he was responsible for improving data quality in information management systems to maintain accreditation. This involved handling real-time, confidential people data requests with a high degree of attention to detail and a strong focus on compliance.</gold-answer>
+<completeness>Full</completeness>
+<accuracy>Perfect</accuracy>
+<conciseness>Verbose</conciseness>
+<hallucinations>nan</hallucinations>
+<format-adherence>Followed</format-adherence>
+</item><item>
+<model>Claude Sonnet 4</model>
+<prompt-type>Unit Test<prompt-type>
+<user>Work History</user>
+<prompt>What was his early career focus before data analytics?</prompt>
+<response>According to the document, his early career was in structural engineering, with multiple internships where he worked on supertall and high-rise projects. His responsibilities included engineering calculations, AutoCAD drafting, Autodesk Revit modeling, and reviewing structural shop drawings.</response>
+<gold-answer>His early career was in structural engineering, with multiple internships where he worked on supertall and high-rise projects. His responsibilities included engineering calculations, AutoCAD drafting, Autodesk Revit modeling, and reviewing structural shop drawings.</gold-answer>
+<completeness>Full</completeness>
+<accuracy>Perfect</accuracy>
+<conciseness>Concise</conciseness>
+<hallucinations>nan</hallucinations>
+<format-adherence>Followed</format-adherence>
+</item><item>
+<model>Claude Sonnet 4</model>
+<prompt-type>Paraphrased<prompt-type>
+<user>Work History</user>
+<prompt>Does he have experience building data pipelines?</prompt>
+<response>Yes, Vishal has extensive experience building data pipelines. According to the document:
+
+**Large-scale government project experience:**
+At the City of Portland, he managed a data reporting pipeline that ingested people data from 48 different sources using R, Python, and SQL, and published the results quarterly to the public Rescue Plan Open Data Portal.
+
+**High-impact automation project:**
+As Director of Data Operations at Measure Education, he built a Python/SQL reporting pipeline to replace a 96-step manual Excel process. This project cut report creation time by a factor of seven and was a key factor in enabling the company to expand its client base by 200%.
+
+**Data quality and compliance:**
+He has a track record as a data analyst at Measure Education and the City of Portland of achieving 100% data accuracy with external partners by fostering relationships, designing new data collection processes from the ground up, and conducting hands-on training until the system was proven to be reliable.
+
+His experience spans both technical implementation (using R, Python, SQL) and the broader aspects of pipeline management including data quality assurance, compliance, and working with multiple data sources.</response>
+<gold-answer>- Rescue Plan pipelines (48 sources of data)
+- Measure Ed Python/SQL pipeline replacing Excel
+- Shelter Services dashboard data pipeline</gold-answer>
+<completeness>Partial</completeness>
+<accuracy>Perfect</accuracy>
+<conciseness>Verbose</conciseness>
+<hallucinations>nan</hallucinations>
+<format-adherence>Followed</format-adherence>
+</item><item>
+<model>Claude Sonnet 4</model>
+<prompt-type>Paraphrased<prompt-type>
+<user>Work History</user>
+<prompt>Does he have leadership experience?</prompt>
+<response>Yes, according to the document, Vishal has demonstrated leadership experience. Specifically, he "demonstrated leadership by founding and leading two data analyst communities of practice at the City of Portland, which enabled over 30 analysts to collaborate and work more effectively together."
+
+Additionally, in his role as Adjunct Faculty at the City College of San Francisco for nearly seven years, he showed leadership in curriculum development by modernizing the engineering curriculum to incorporate Python learning objectives and facilitating the creation of an entirely new A.S. degree and certification program by moderating input from department leadership to achieve consensus.</response>
+<gold-answer>He has demonstrated leadership by founding and leading two data analyst communities of practice at the City of Portland, which enabled over 30 analysts to collaborate and work more effectively together.</gold-answer>
+<completeness>Full</completeness>
+<accuracy>Perfect</accuracy>
+<conciseness>Concise</conciseness>
+<hallucinations>nan</hallucinations>
+<format-adherence>Followed</format-adherence>
+</item><item>
+<model>Claude Sonnet 4</model>
+<prompt-type>Paraphrased<prompt-type>
+<user>Work History</user>
+<prompt>Does he have experience managing stakeholders and partners on complex projects?</prompt>
+<response>Yes, based on the portfolio, Vishal has demonstrated experience managing stakeholders and partners on complex projects:
+
+**Stakeholder Management:**
+- As an Adjunct Faculty member for nearly seven years at the City College of San Francisco, he "facilitated the creation of an entirely new A.S. degree and certification program by moderating input from department leadership to achieve consensus."
+- He founded and led two data analyst communities of practice at the City of Portland, enabling over 30 analysts to collaborate and work more effectively together.
+
+**Partner Management:**
+- He has "a track record as a data analyst at Measure Education and the City of Portland of achieving 100% data accuracy with external partners by fostering relationships, designing new data collection processes from the ground up, and conducting hands-on training until the system was proven to be reliable."
+- At the City of Portland, he managed a data reporting pipeline that ingested people data from 48 different sources, suggesting coordination across multiple stakeholder groups.
+- As a Student Data Manager for over 50 clients at Measure Education, he was responsible for handling real-time, confidential people data requests with high attention to detail.
+
+His approach appears to emphasize relationship building, consensus building, and hands-on training to ensure reliable outcomes when working with multiple stakeholders and external partners.</response>
+<gold-answer>- CCSF A.S. curriculum building
+- Measure Ed 50+ clients with high satisfaction
+- City of Portland Rescue Plan (48 data sources)
+</gold-answer>
+<completeness>Full</completeness>
+<accuracy>Perfect</accuracy>
+<conciseness>Verbose</conciseness>
+<hallucinations>nan</hallucinations>
+<format-adherence>Followed</format-adherence>
 </item>
 </dataset>
