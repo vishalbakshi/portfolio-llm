@@ -2,7 +2,8 @@
 
 An engineered professional portfolio designed to be reliably queried by an LLM. This project uses a curated context file ([llms_ctx.txt](https://raw.githubusercontent.com/vishalbakshi/portfolio-llm/refs/heads/main/llms_ctx.txt)) and a rigorous evaluation framework to provide an accurate and interactive overview of my skills and experience.
 
-Video walkthrough: https://youtu.be/Qhax3JerFP0?feature=shared
+- Video walkthrough: https://youtu.be/Qhax3JerFP0?feature=shared
+- Blog post: https://vishalbakshi.github.io/blog/posts/2025-06-26-portfolio-llm/
 
 ## An Interactive Way to Learn About My Work
 
