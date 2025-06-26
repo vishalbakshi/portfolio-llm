@@ -26,7 +26,7 @@ If you can't find an answer in the text, it's important that you say the informa
 Here is the text:
 ```
   
-3. Start asking questions! For example: "What kind of role is he best fit for? List out some role names and fit."
+3. Start asking questions! For example: "What kind of role is he best fit for? List out some role names and fit." or "Tell me about his work experience."
 
 ## For a Deeper Dive
 
