@@ -336,9 +336,11 @@ Second, for a more complex product using the `financial_phrasebank` sentiment cl
 
 **Question:** What's a time where he had to deal with unexpected system downtime?
 
-**Answer:** I have two examples, both at the City of Portland. Our public-facing Rescue Plan Open Data Portal was hacked and images and text were altered significantly. Our developer was on vacation that day but I sent him a text message as it was clearly an emergency. We hopped on a call and planned our next steps, the first of which was to take the website down immediately. Over the next couple days, I rebuilt all affected pages, we changed our credentials, and made the page public again. While I wasn't involved in figuring out how the page was compromised, we learned that someone's credentials were accidentally placed in a file on a public-facing GitHub repo. While the user and question was not on our team, my coworker and I made sure our team was updated on this risk and updated our training documentation to verify that credentials were not placed in GitHub files.
+**Answer:** While at the City of Portland, the public-facing Rescue Plan Open Data Portal was hacked, with text and images being altered. He immediately contacted the lead developer who was on vacation, and together they made the decision to take the website down instantly to contain the issue.
 
-A second example: the site exists on a ArcGIS server and database. There is a configuration file which contains metadata including an alias for the table name. One of the backend developers updated the alias names to better organize and communicate the table contents. As a result, all of our feature layer endpoints broke and all dashboards on the Rescue Plan Open Data Portal were no longer displaying data. While there was no easy solution to this---over the next couple of days I rebuilt the entire portal from scratch and our site was running again. 
+Over the next two days, he rebuilt all the affected pages from scratch. While he wasn't directly involved in the security audit, the root cause was found to be someone's credentials accidentally committed to a public GitHub repo.
+
+The most important step he took was to ensure this couldn't happen again. He and a colleague updated their team's training documentation and processes ensuring no credentials were placed in public-facing GitHub files, thus hardening the system against future failures.
 
 
 ## Out-of-Scope Questions
