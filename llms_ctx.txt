@@ -334,7 +334,7 @@ Second, for a more complex product using the `financial_phrasebank` sentiment cl
 
 ---
 
-**Question:** What's a time where you had to deal with unexpected system downtime?
+**Question:** What's a time where he had to deal with unexpected system downtime?
 
 **Answer:** I have two examples, both at the City of Portland. Our public-facing Rescue Plan Open Data Portal was hacked and images and text were altered significantly. Our developer was on vacation that day but I sent him a text message as it was clearly an emergency. We hopped on a call and planned our next steps, the first of which was to take the website down immediately. Over the next couple days, I rebuilt all affected pages, we changed our credentials, and made the page public again. While I wasn't involved in figuring out how the page was compromised, we learned that someone's credentials were accidentally placed in a file on a public-facing GitHub repo. While the user and question was not on our team, my coworker and I made sure our team was updated on this risk and updated our training documentation to verify that credentials were not placed in GitHub files.
 
