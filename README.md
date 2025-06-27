@@ -4,6 +4,7 @@ An engineered professional portfolio designed to be reliably queried by an LLM. 
 
 - [Video walkthrough](https://youtu.be/Qhax3JerFP0?feature=shared)
 - [Blog post](https://vishalbakshi.github.io/blog/posts/2025-06-26-portfolio-llm/)
+- [Twitter](https://x.com/vishal_learner)
 
 ## An Interactive Way to Learn About My Work
 
