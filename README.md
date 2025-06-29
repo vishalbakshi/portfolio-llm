@@ -31,7 +31,7 @@ Here is the text:
 
 ## For a Deeper Dive
 
-Below are the core themes that structure my work. Use these to ask more specific questions, such as "Tell me about the AgentFastbook, TinyScaleLab and fastbook-benchmark projects", or "What is his experience with the StanfordNLP/ColBERT library?"
+Below are the core themes that structure my work (across 130+ blog posts and 60+ videos). Use these to ask more specific questions, such as "Tell me about the AgentFastbook, TinyScaleLab and fastbook-benchmark projects", or "What is his experience with the StanfordNLP/ColBERT library?"
 
 ### Theme 1: Building Evaluation Infrastructure & LLM Judges
 
